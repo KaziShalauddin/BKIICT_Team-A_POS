@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
             InitializeComponent();
             GetOrganizations();
             GetOutlets();
-
+            GetBarCode();
         }
 
         private void GetOutlets()
@@ -85,11 +86,9 @@ namespace BKIICT_POS_Management.UI.SetupUI
                 outlet.Address = addressTextBox.Text;
                 outlet.OrganizationId = id;
                 outlet.Logo = outletLogo;
+                outlet.Code = GetBarCode();
 
-                Random number = new Random();
-                outlet.Code = number.Next(100, 200).ToString();
-                Zen.Barcode.Code128BarcodeDraw barcode = Zen.Barcode.BarcodeDrawFactory.Code128WithChecksum;
-                barCodePictureBox.Image = barcode.Draw(outlet.Code, 14);
+                
 
                 db.Outlets.Add(outlet);
                 var check = db.SaveChanges();
@@ -110,7 +109,31 @@ namespace BKIICT_POS_Management.UI.SetupUI
                 MessageBox.Show("Please check your input");
             }
         }
-
+        private string GetBarCode()
+        {
+            Random number = new Random();
+            var l = new Organization();
+            l.Code = number.Next(100, 200).ToString();
+            string b = l.Code;
+            Bitmap a = new Bitmap(b.Length * 50, 60);
+            using (Graphics graphic = Graphics.FromImage(a))
+            {
+                Font o = new System.Drawing.Font("IDAutomationHC39M Free Version", 10);
+                PointF f = new PointF(2f, 2f);
+                SolidBrush brush = new SolidBrush(Color.Black);
+                SolidBrush white = new SolidBrush(Color.White);
+                graphic.FillRectangle(white, 0, 0, a.Width, a.Height);
+                graphic.DrawString("*" + b + "*", o, brush, f);
+            }
+            using (MemoryStream ms = new MemoryStream())
+            {
+                a.Save(ms, ImageFormat.Png);
+                barCodePictureBox.Image = a;
+                barCodePictureBox.Height = a.Height;
+                barCodePictureBox.Width = a.Width;
+            }
+            return l.Code;
+        }
         private void searchButton_Click(object sender, EventArgs e)
         {
             string code = searchTextBox.Text;
@@ -120,5 +143,42 @@ namespace BKIICT_POS_Management.UI.SetupUI
                 outlets.Select(o => new { o.Id, Organization = o.Organization.Name, o.Name, o.Code, o.ContactNo, o.Address })
                     .Where(o => o.Code == code).ToList();
         }
+
+        private void serchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var org = new PosManagementDbContext();
+            String a = serchTextBox.Text;
+            //var search1= 
+            //var s = org.Organizations.Where(o => o.Code.StartsWith(a)).ToList();
+            var search = org.Outlets.Where(o => o.Name.StartsWith(a)).ToList();
+
+            branchDataGridView.DataSource = search;
+        }
+
+        private int gvId;
+        private void branchDataGridView_DoubleClick(object sender, EventArgs e)
+        {
+            var db = new PosManagementDbContext();
+            DataGridViewCell cell = null;
+            foreach (DataGridViewCell selectedCell in branchDataGridView.SelectedCells)
+            {
+                cell = selectedCell;
+                break;
+            }
+            if (cell != null)
+            {
+                DataGridViewRow row = cell.OwningRow;
+                nameTextBox.Text = row.Cells[2].Value.ToString();                
+                codeTextBox.Text = row.Cells[3].Value.ToString();
+                codeTextBox.Visible = true;
+                barCodePictureBox.Visible = false;
+                contactNoTextBox.Text = row.Cells[4].Value.ToString();
+                addressTextBox.Text = row.Cells[5].Value.ToString();
+                gvId = branchDataGridView.CurrentRow.Index;
+
+            }
+        }
+
+
     }
 }

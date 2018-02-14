@@ -153,7 +153,8 @@
             this.expenseCategoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.expenseCategoryDataGridView.Location = new System.Drawing.Point(421, 67);
             this.expenseCategoryDataGridView.Name = "expenseCategoryDataGridView";
-            this.expenseCategoryDataGridView.Size = new System.Drawing.Size(380, 236);
+            this.expenseCategoryDataGridView.RowTemplate.Height = 70;
+            this.expenseCategoryDataGridView.Size = new System.Drawing.Size(380, 267);
             this.expenseCategoryDataGridView.TabIndex = 15;
             // 
             // searchButton
@@ -211,7 +212,7 @@
             // addChildsRadioButton
             // 
             this.addChildsRadioButton.AutoSize = true;
-            this.addChildsRadioButton.Location = new System.Drawing.Point(270, 67);
+            this.addChildsRadioButton.Location = new System.Drawing.Point(254, 67);
             this.addChildsRadioButton.Name = "addChildsRadioButton";
             this.addChildsRadioButton.Size = new System.Drawing.Size(75, 17);
             this.addChildsRadioButton.TabIndex = 41;
@@ -222,6 +223,8 @@
             // 
             // addChildComboBox
             // 
+            this.addChildComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.addChildComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.addChildComboBox.FormattingEnabled = true;
             this.addChildComboBox.Location = new System.Drawing.Point(133, 95);
             this.addChildComboBox.Name = "addChildComboBox";

@@ -30,7 +30,6 @@
         {
             this.saveButton = new System.Windows.Forms.Button();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
-            this.codeTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,13 +38,16 @@
             this.expenseItemComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.barCodePictureBox = new System.Windows.Forms.PictureBox();
             this.cancelButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.expenseCategoryDataGridView = new System.Windows.Forms.DataGridView();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.codeTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barCodePictureBox)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.expenseCategoryDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -67,13 +69,6 @@
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(196, 58);
             this.descriptionTextBox.TabIndex = 8;
-            // 
-            // codeTextBox
-            // 
-            this.codeTextBox.Location = new System.Drawing.Point(114, 155);
-            this.codeTextBox.Name = "codeTextBox";
-            this.codeTextBox.Size = new System.Drawing.Size(196, 20);
-            this.codeTextBox.TabIndex = 9;
             // 
             // nameTextBox
             // 
@@ -141,6 +136,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.codeTextBox);
+            this.groupBox1.Controls.Add(this.barCodePictureBox);
             this.groupBox1.Controls.Add(this.cancelButton);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.expenseItemComboBox);
@@ -149,7 +146,6 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.descriptionTextBox);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.codeTextBox);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.nameTextBox);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -157,6 +153,14 @@
             this.groupBox1.Size = new System.Drawing.Size(374, 355);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
+            // 
+            // barCodePictureBox
+            // 
+            this.barCodePictureBox.Location = new System.Drawing.Point(114, 135);
+            this.barCodePictureBox.Name = "barCodePictureBox";
+            this.barCodePictureBox.Size = new System.Drawing.Size(196, 50);
+            this.barCodePictureBox.TabIndex = 14;
+            this.barCodePictureBox.TabStop = false;
             // 
             // cancelButton
             // 
@@ -185,8 +189,10 @@
             this.expenseCategoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.expenseCategoryDataGridView.Location = new System.Drawing.Point(12, 63);
             this.expenseCategoryDataGridView.Name = "expenseCategoryDataGridView";
+            this.expenseCategoryDataGridView.RowTemplate.Height = 70;
             this.expenseCategoryDataGridView.Size = new System.Drawing.Size(380, 236);
             this.expenseCategoryDataGridView.TabIndex = 20;
+            this.expenseCategoryDataGridView.DoubleClick += new System.EventHandler(this.expenseCategoryDataGridView_DoubleClick);
             // 
             // searchButton
             // 
@@ -214,6 +220,14 @@
             this.label6.TabIndex = 16;
             this.label6.Text = "Code";
             // 
+            // codeTextBox
+            // 
+            this.codeTextBox.Location = new System.Drawing.Point(114, 151);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.Size = new System.Drawing.Size(196, 20);
+            this.codeTextBox.TabIndex = 15;
+            this.codeTextBox.Visible = false;
+            // 
             // SetupExpenseUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,6 +239,7 @@
             this.Text = "SetupExpense";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barCodePictureBox)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.expenseCategoryDataGridView)).EndInit();
@@ -236,7 +251,6 @@
 
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.TextBox descriptionTextBox;
-        private System.Windows.Forms.TextBox codeTextBox;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -251,5 +265,7 @@
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.PictureBox barCodePictureBox;
+        private System.Windows.Forms.TextBox codeTextBox;
     }
 }

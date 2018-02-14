@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BKIICT_POS_Management.DatabaseContext;
+using BKIICT_POS_Management.Models;
 using    BKIICT_POS_Management.Models.Expense;
 
 namespace BKIICT_POS_Management.UI.SetupUI
@@ -107,6 +110,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
                 MessageBox.Show(" Not Saved! ");
             }
         }
+        
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -138,6 +142,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
             _childId = maxChildId + 1;
         }
 
+
         private void addChildComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int id;
@@ -153,5 +158,6 @@ namespace BKIICT_POS_Management.UI.SetupUI
                 expenseCategories.Select(o => new { o.Id, o.Name, o.Code, o.Description })
                     .Where(o => o.Code == code).ToList();
         }
+  
     }
 }

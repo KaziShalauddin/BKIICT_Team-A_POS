@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,8 @@ namespace BKIICT_POS_Management.UI.SetupUI
         {
             InitializeComponent();
             GetOrganizations();
+            GetBarCode();
+
         }
 
         private void GetOrganizations()
@@ -26,14 +29,15 @@ namespace BKIICT_POS_Management.UI.SetupUI
             PosManagementDbContext or = new PosManagementDbContext();
             var organizationInfo = or.Organizations.ToList();
             orgDataGridView.DataSource = organizationInfo;
+
         }
 
-        byte[] orgLogo = null;
-        string img = null;
+        private byte[] orgLogo = null;
+        private string img = null;
 
         private void uploadButton_Click(object sender, EventArgs e)
         {
-            
+
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "JPG Files (*.Jpg)|*.JPG|GIF Files(*.gif)|*.GIF|All Files(*.*)|*.*";
             openFileDialog.FileName = "Upload Image";
@@ -44,10 +48,11 @@ namespace BKIICT_POS_Management.UI.SetupUI
             }
             FileStream fs = new FileStream(img, FileMode.Open, FileAccess.Read);
             BinaryReader br = new BinaryReader(fs);
-            orgLogo = br.ReadBytes((int)fs.Length);
+            orgLogo = br.ReadBytes((int) fs.Length);
         }
 
         private PosManagementDbContext org;
+
         private void saveButton_Click(object sender, EventArgs e)
         {
             if (org == null)
@@ -56,18 +61,24 @@ namespace BKIICT_POS_Management.UI.SetupUI
             }
             try
             {
+
+                if (org.Organizations.Count(c => c.ContactNo == mobNoTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Change contact No");
+                }
+                else if (org.Organizations.Count(c => c.Code == codeTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Change code No");
+                }
                 Organization aOrganization = new Organization();
                 aOrganization.Name = nameOrgTextBox.Text;
                 aOrganization.ContactNo = mobNoTextBox.Text;
                 aOrganization.Address = addressTextBox.Text;
                 aOrganization.Logo = orgLogo;
+                aOrganization.Code = GetBarCode();
 
-                Random number = new Random();
-                aOrganization.Code = number.Next(100, 200).ToString();
-                Zen.Barcode.Code128BarcodeDraw barcode = Zen.Barcode.BarcodeDrawFactory.Code128WithChecksum;
-                barCodePictureBox.Image = barcode.Draw(aOrganization.Code, 14);
 
-                
+
                 org.Organizations.Add(aOrganization);
                 var check = org.SaveChanges();
                 if (check > 0)
@@ -88,6 +99,32 @@ namespace BKIICT_POS_Management.UI.SetupUI
 
         }
 
+        private string GetBarCode()
+        {
+            Random number = new Random();
+            var l = new Organization();
+            l.Code = number.Next(100, 200).ToString();
+            string b = l.Code;
+            Bitmap a = new Bitmap(b.Length*50, 60);
+            using (Graphics graphic = Graphics.FromImage(a))
+            {
+                Font o = new System.Drawing.Font("IDAutomationHC39M Free Version", 10);
+                PointF f = new PointF(2f, 2f);
+                SolidBrush brush = new SolidBrush(Color.Black);
+                SolidBrush white = new SolidBrush(Color.White);
+                graphic.FillRectangle(white, 0, 0, a.Width, a.Height);
+                graphic.DrawString("*" + b + "*", o, brush, f);
+            }
+            using (MemoryStream ms = new MemoryStream())
+            {
+                a.Save(ms, ImageFormat.Png);
+                barCodePictureBox.Image = a;
+                barCodePictureBox.Height = a.Height;
+                barCodePictureBox.Width = a.Width;
+            }
+            return l.Code;
+        }
+
         private void showButton_Click(object sender, EventArgs e)
         {
             GetOrganizations();
@@ -98,13 +135,61 @@ namespace BKIICT_POS_Management.UI.SetupUI
             this.Close();
         }
 
-        //private void clearButton_Click(object sender, EventArgs e)
-        //{
-        //    nameOrgTextBox.Clear();
-        //    barCodePictureBox = null;
-        //    mobNoTextBox.Clear();
-        //    addressTextBox.Clear();
-        //    orgPictureBox = null;
-        //}
+        private void seTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var org = new PosManagementDbContext();
+            String a = seTextBox.Text;
+            //var search1= 
+            var s = org.Organizations.Where(o => o.Code.StartsWith(a)).ToList();
+            //var search = org.Organizations.Where().ToList();
+
+            orgDataGridView.DataSource = s;
+        }
+
+        private void serchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var org = new PosManagementDbContext();
+            String a = serchTextBox.Text;
+            //var search1= 
+            //var s = org.Organizations.Where(o => o.Code.StartsWith(a)).ToList();
+            var search = org.Organizations.Where(o => o.Name.StartsWith(a)).ToList();
+
+            orgDataGridView.DataSource = search;
+        }
+        private int gvId = 0;
+        private void orgDataGridView_DoubleClick(object sender, EventArgs e)
+        {
+            var db = new PosManagementDbContext();
+            DataGridViewCell cell = null;
+            foreach (DataGridViewCell selectedCell in orgDataGridView.SelectedCells)
+            {
+                cell = selectedCell;
+                break;
+            }
+            if (cell != null)
+            {
+                DataGridViewRow row = cell.OwningRow;
+                nameOrgTextBox.Text = row.Cells[1].Value.ToString();
+                //byte[] logoa = (byte[])orgLogo;
+                ////MemoryStream imgbit = new MemoryStream(logoa);
+                //barCodePictureBox.Image = Image.FromStream(imgbit);
+                mobNoTextBox.Text = row.Cells[3].Value.ToString();
+                codeTextBox.Visible = true;
+                barCodePictureBox.Visible = false;
+                codeTextBox.Text = row.Cells[2].Value.ToString();
+                addressTextBox.Text = row.Cells[5].Value.ToString();
+                int gvId = orgDataGridView.CurrentRow.Index;
+            }
+
+
+            //private void clearButton_Click(object sender, EventArgs e)
+            //{
+            //    nameOrgTextBox.Clear();
+            //    barCodePictureBox = null;
+            //    mobNoTextBox.Clear();
+            //    addressTextBox.Clear();
+            //    orgPictureBox = null;
+            //}
+        }
     }
 }

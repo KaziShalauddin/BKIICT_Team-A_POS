@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBoxAddOraganization = new System.Windows.Forms.GroupBox();
+            this.codeTextBox = new System.Windows.Forms.TextBox();
             this.uploadButton = new System.Windows.Forms.Button();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -45,10 +46,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.branchDataGridView = new System.Windows.Forms.DataGridView();
+            this.label8 = new System.Windows.Forms.Label();
+            this.serchTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.branchDataGridView = new System.Windows.Forms.DataGridView();
             this.groupBoxAddOraganization.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barCodePictureBox)).BeginInit();
@@ -58,6 +61,7 @@
             // 
             // groupBoxAddOraganization
             // 
+            this.groupBoxAddOraganization.Controls.Add(this.codeTextBox);
             this.groupBoxAddOraganization.Controls.Add(this.uploadButton);
             this.groupBoxAddOraganization.Controls.Add(this.logoPictureBox);
             this.groupBoxAddOraganization.Controls.Add(this.label6);
@@ -79,6 +83,14 @@
             this.groupBoxAddOraganization.TabIndex = 13;
             this.groupBoxAddOraganization.TabStop = false;
             this.groupBoxAddOraganization.Text = "Add Outlet";
+            // 
+            // codeTextBox
+            // 
+            this.codeTextBox.Location = new System.Drawing.Point(105, 116);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.Size = new System.Drawing.Size(232, 20);
+            this.codeTextBox.TabIndex = 19;
+            this.codeTextBox.Visible = false;
             // 
             // uploadButton
             // 
@@ -119,6 +131,7 @@
             // 
             // organizationComboBox
             // 
+            this.organizationComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.organizationComboBox.FormattingEnabled = true;
             this.organizationComboBox.Location = new System.Drawing.Point(104, 25);
             this.organizationComboBox.Name = "organizationComboBox";
@@ -214,6 +227,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.serchTextBox);
             this.groupBox1.Controls.Add(this.searchButton);
             this.groupBox1.Controls.Add(this.searchTextBox);
             this.groupBox1.Controls.Add(this.label7);
@@ -224,17 +239,26 @@
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             // 
-            // branchDataGridView
+            // label8
             // 
-            this.branchDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.branchDataGridView.Location = new System.Drawing.Point(23, 60);
-            this.branchDataGridView.Name = "branchDataGridView";
-            this.branchDataGridView.Size = new System.Drawing.Size(488, 405);
-            this.branchDataGridView.TabIndex = 14;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 34);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "Name";
+            // 
+            // serchTextBox
+            // 
+            this.serchTextBox.Location = new System.Drawing.Point(42, 34);
+            this.serchTextBox.Name = "serchTextBox";
+            this.serchTextBox.Size = new System.Drawing.Size(229, 20);
+            this.serchTextBox.TabIndex = 27;
+            this.serchTextBox.TextChanged += new System.EventHandler(this.serchTextBox_TextChanged);
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(370, 25);
+            this.searchButton.Location = new System.Drawing.Point(433, 6);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(78, 23);
             this.searchButton.TabIndex = 21;
@@ -244,7 +268,7 @@
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(156, 25);
+            this.searchTextBox.Location = new System.Drawing.Point(315, 34);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(196, 20);
             this.searchTextBox.TabIndex = 20;
@@ -252,11 +276,21 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(95, 25);
+            this.label7.Location = new System.Drawing.Point(277, 37);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(32, 13);
             this.label7.TabIndex = 19;
             this.label7.Text = "Code";
+            // 
+            // branchDataGridView
+            // 
+            this.branchDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.branchDataGridView.Location = new System.Drawing.Point(23, 60);
+            this.branchDataGridView.Name = "branchDataGridView";
+            this.branchDataGridView.RowTemplate.Height = 70;
+            this.branchDataGridView.Size = new System.Drawing.Size(488, 405);
+            this.branchDataGridView.TabIndex = 14;
+            this.branchDataGridView.DoubleClick += new System.EventHandler(this.branchDataGridView_DoubleClick);
             // 
             // OutletSetupUi
             // 
@@ -300,5 +334,8 @@
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox serchTextBox;
+        private System.Windows.Forms.TextBox codeTextBox;
     }
 }

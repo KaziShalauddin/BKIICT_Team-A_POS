@@ -34,29 +34,29 @@
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.barCodePictureBox = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.uploadButton = new System.Windows.Forms.Button();
+            this.imgPictureBox = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
             this.itemCategoryComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.uploadButton = new System.Windows.Forms.Button();
-            this.imgPictureBox = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.barCodePictureBox = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.costPriceTextBox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.salePriceTextBox = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.costPriceTextBox = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemsDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barCodePictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -76,6 +76,7 @@
             this.itemsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.itemsDataGridView.Location = new System.Drawing.Point(12, 63);
             this.itemsDataGridView.Name = "itemsDataGridView";
+            this.itemsDataGridView.RowTemplate.Height = 70;
             this.itemsDataGridView.Size = new System.Drawing.Size(473, 398);
             this.itemsDataGridView.TabIndex = 20;
             // 
@@ -131,6 +132,52 @@
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             // 
+            // barCodePictureBox
+            // 
+            this.barCodePictureBox.Location = new System.Drawing.Point(114, 114);
+            this.barCodePictureBox.Name = "barCodePictureBox";
+            this.barCodePictureBox.Size = new System.Drawing.Size(196, 65);
+            this.barCodePictureBox.TabIndex = 22;
+            this.barCodePictureBox.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(38, 130);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(32, 13);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Code";
+            // 
+            // uploadButton
+            // 
+            this.uploadButton.Location = new System.Drawing.Point(309, 322);
+            this.uploadButton.Name = "uploadButton";
+            this.uploadButton.Size = new System.Drawing.Size(61, 23);
+            this.uploadButton.TabIndex = 20;
+            this.uploadButton.Text = "Upload";
+            this.uploadButton.UseVisualStyleBackColor = true;
+            this.uploadButton.Click += new System.EventHandler(this.uploadButton_Click);
+            // 
+            // imgPictureBox
+            // 
+            this.imgPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imgPictureBox.Location = new System.Drawing.Point(105, 283);
+            this.imgPictureBox.Name = "imgPictureBox";
+            this.imgPictureBox.Size = new System.Drawing.Size(184, 99);
+            this.imgPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgPictureBox.TabIndex = 19;
+            this.imgPictureBox.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(38, 332);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Image";
+            // 
             // cancelButton
             // 
             this.cancelButton.Location = new System.Drawing.Point(77, 458);
@@ -143,6 +190,7 @@
             // 
             // itemCategoryComboBox
             // 
+            this.itemCategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.itemCategoryComboBox.FormattingEnabled = true;
             this.itemCategoryComboBox.Location = new System.Drawing.Point(114, 50);
             this.itemCategoryComboBox.Name = "itemCategoryComboBox";
@@ -161,6 +209,24 @@
             this.label2.Size = new System.Drawing.Size(161, 26);
             this.label2.TabIndex = 4;
             this.label2.Text = "Item Setup";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(36, 241);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(55, 13);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Sale Price";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(36, 200);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(55, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Cost Price";
             // 
             // label3
             // 
@@ -207,58 +273,12 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "Description";
             // 
-            // nameTextBox
+            // salePriceTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(114, 88);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(196, 20);
-            this.nameTextBox.TabIndex = 10;
-            // 
-            // uploadButton
-            // 
-            this.uploadButton.Location = new System.Drawing.Point(309, 322);
-            this.uploadButton.Name = "uploadButton";
-            this.uploadButton.Size = new System.Drawing.Size(61, 23);
-            this.uploadButton.TabIndex = 20;
-            this.uploadButton.Text = "Upload";
-            this.uploadButton.UseVisualStyleBackColor = true;
-            this.uploadButton.Click += new System.EventHandler(this.uploadButton_Click);
-            // 
-            // imgPictureBox
-            // 
-            this.imgPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imgPictureBox.Location = new System.Drawing.Point(105, 283);
-            this.imgPictureBox.Name = "imgPictureBox";
-            this.imgPictureBox.Size = new System.Drawing.Size(184, 99);
-            this.imgPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgPictureBox.TabIndex = 19;
-            this.imgPictureBox.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 332);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Image";
-            // 
-            // barCodePictureBox
-            // 
-            this.barCodePictureBox.Location = new System.Drawing.Point(114, 114);
-            this.barCodePictureBox.Name = "barCodePictureBox";
-            this.barCodePictureBox.Size = new System.Drawing.Size(196, 65);
-            this.barCodePictureBox.TabIndex = 22;
-            this.barCodePictureBox.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(38, 130);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 13);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "Code";
+            this.salePriceTextBox.Location = new System.Drawing.Point(114, 238);
+            this.salePriceTextBox.Name = "salePriceTextBox";
+            this.salePriceTextBox.Size = new System.Drawing.Size(196, 20);
+            this.salePriceTextBox.TabIndex = 10;
             // 
             // costPriceTextBox
             // 
@@ -267,30 +287,12 @@
             this.costPriceTextBox.Size = new System.Drawing.Size(196, 20);
             this.costPriceTextBox.TabIndex = 10;
             // 
-            // label8
+            // nameTextBox
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(36, 200);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(55, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Cost Price";
-            // 
-            // salePriceTextBox
-            // 
-            this.salePriceTextBox.Location = new System.Drawing.Point(114, 238);
-            this.salePriceTextBox.Name = "salePriceTextBox";
-            this.salePriceTextBox.Size = new System.Drawing.Size(196, 20);
-            this.salePriceTextBox.TabIndex = 10;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(36, 241);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 13);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "Sale Price";
+            this.nameTextBox.Location = new System.Drawing.Point(114, 88);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(196, 20);
+            this.nameTextBox.TabIndex = 10;
             // 
             // SetupItemUi
             // 
@@ -306,8 +308,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.itemsDataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barCodePictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }

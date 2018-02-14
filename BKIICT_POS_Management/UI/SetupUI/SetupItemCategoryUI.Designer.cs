@@ -61,6 +61,7 @@
             this.itemCategoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.itemCategoryDataGridView.Location = new System.Drawing.Point(365, 77);
             this.itemCategoryDataGridView.Name = "itemCategoryDataGridView";
+            this.itemCategoryDataGridView.RowHeadersWidth = 42;
             this.itemCategoryDataGridView.Size = new System.Drawing.Size(380, 236);
             this.itemCategoryDataGridView.TabIndex = 34;
             // 

@@ -40,9 +40,14 @@
             this.nextButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.serchTextBox = new System.Windows.Forms.TextBox();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.partyDataGridView = new System.Windows.Forms.DataGridView();
             this.showButton = new System.Windows.Forms.Button();
             this.partyPart2GroupBox = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.barCodePictureBox = new System.Windows.Forms.PictureBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.uploadButton = new System.Windows.Forms.Button();
@@ -124,7 +129,6 @@
             this.outletComboBox.Name = "outletComboBox";
             this.outletComboBox.Size = new System.Drawing.Size(178, 21);
             this.outletComboBox.TabIndex = 19;
-           
             // 
             // organizationComboBox
             // 
@@ -184,6 +188,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.serchTextBox);
+            this.groupBox1.Controls.Add(this.searchTextBox);
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.partyDataGridView);
             this.groupBox1.Controls.Add(this.showButton);
             this.groupBox1.Location = new System.Drawing.Point(427, 12);
@@ -192,19 +200,54 @@
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(33, 40);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(35, 13);
+            this.label10.TabIndex = 97;
+            this.label10.Text = "Name";
+            // 
+            // serchTextBox
+            // 
+            this.serchTextBox.Location = new System.Drawing.Point(74, 37);
+            this.serchTextBox.Name = "serchTextBox";
+            this.serchTextBox.Size = new System.Drawing.Size(229, 20);
+            this.serchTextBox.TabIndex = 96;
+            this.serchTextBox.TextChanged += new System.EventHandler(this.serchTextBox_TextChanged);
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Location = new System.Drawing.Point(347, 37);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(196, 20);
+            this.searchTextBox.TabIndex = 95;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(309, 40);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(32, 13);
+            this.label11.TabIndex = 94;
+            this.label11.Text = "Code";
+            // 
             // partyDataGridView
             // 
             this.partyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.partyDataGridView.Location = new System.Drawing.Point(22, 56);
+            this.partyDataGridView.Location = new System.Drawing.Point(22, 67);
             this.partyDataGridView.Name = "partyDataGridView";
             this.partyDataGridView.ReadOnly = true;
             this.partyDataGridView.RowHeadersVisible = false;
-            this.partyDataGridView.Size = new System.Drawing.Size(503, 500);
+            this.partyDataGridView.RowTemplate.Height = 70;
+            this.partyDataGridView.Size = new System.Drawing.Size(503, 489);
             this.partyDataGridView.TabIndex = 18;
             // 
             // showButton
             // 
-            this.showButton.Location = new System.Drawing.Point(397, 19);
+            this.showButton.Location = new System.Drawing.Point(434, 0);
             this.showButton.Name = "showButton";
             this.showButton.Size = new System.Drawing.Size(109, 31);
             this.showButton.TabIndex = 16;
@@ -214,6 +257,7 @@
             // 
             // partyPart2GroupBox
             // 
+            this.partyPart2GroupBox.Controls.Add(this.textBox1);
             this.partyPart2GroupBox.Controls.Add(this.barCodePictureBox);
             this.partyPart2GroupBox.Controls.Add(this.nameTextBox);
             this.partyPart2GroupBox.Controls.Add(this.uploadButton);
@@ -234,6 +278,14 @@
             this.partyPart2GroupBox.TabIndex = 22;
             this.partyPart2GroupBox.TabStop = false;
             this.partyPart2GroupBox.Text = "Praty( Part 2)";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(96, 65);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(197, 20);
+            this.textBox1.TabIndex = 32;
+            this.textBox1.Visible = false;
             // 
             // barCodePictureBox
             // 
@@ -272,7 +324,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(200, 351);
+            this.saveButton.Location = new System.Drawing.Point(215, 351);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 29;
@@ -373,6 +425,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partyDataGridView)).EndInit();
             this.partyPart2GroupBox.ResumeLayout(false);
             this.partyPart2GroupBox.PerformLayout();
@@ -413,5 +466,10 @@
         private System.Windows.Forms.RadioButton customerRadioButton;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button nextButton;
+        private System.Windows.Forms.TextBox serchTextBox;
+        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

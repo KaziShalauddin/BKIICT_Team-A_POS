@@ -32,7 +32,7 @@
             this.employeeDataGridView = new System.Windows.Forms.DataGridView();
             this.cancelButton = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.PersonalGroupBox = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.conNoTextBoxEM = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -49,7 +49,8 @@
             this.contactNoTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.officeGroupBox = new System.Windows.Forms.GroupBox();
+            this.codeTextBox = new System.Windows.Forms.TextBox();
             this.barCodePictureBox = new System.Windows.Forms.PictureBox();
             this.uploadButton = new System.Windows.Forms.Button();
             this.employeePictureBox = new System.Windows.Forms.PictureBox();
@@ -61,9 +62,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.serchTextBox = new System.Windows.Forms.TextBox();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.PersonalGroupBox.SuspendLayout();
+            this.officeGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barCodePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeePictureBox)).BeginInit();
             this.SuspendLayout();
@@ -83,8 +88,10 @@
             this.employeeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.employeeDataGridView.Location = new System.Drawing.Point(9, 376);
             this.employeeDataGridView.Name = "employeeDataGridView";
+            this.employeeDataGridView.RowTemplate.Height = 70;
             this.employeeDataGridView.Size = new System.Drawing.Size(907, 126);
             this.employeeDataGridView.TabIndex = 89;
+            this.employeeDataGridView.DoubleClick += new System.EventHandler(this.employeeDataGridView_DoubleClick);
             // 
             // cancelButton
             // 
@@ -106,26 +113,26 @@
             this.save.UseVisualStyleBackColor = true;
             this.save.Click += new System.EventHandler(this.save_Click);
             // 
-            // groupBox2
+            // PersonalGroupBox
             // 
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.conNoTextBoxEM);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.nameMotherTextBox);
-            this.groupBox2.Controls.Add(this.nameFatherTextBox);
-            this.groupBox2.Controls.Add(this.nidTextBox);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.parmanentAddressTextBox);
-            this.groupBox2.Controls.Add(this.presentAddressTextBox);
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Location = new System.Drawing.Point(459, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(396, 229);
-            this.groupBox2.TabIndex = 86;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Personal";
+            this.PersonalGroupBox.Controls.Add(this.label9);
+            this.PersonalGroupBox.Controls.Add(this.conNoTextBoxEM);
+            this.PersonalGroupBox.Controls.Add(this.label10);
+            this.PersonalGroupBox.Controls.Add(this.nameMotherTextBox);
+            this.PersonalGroupBox.Controls.Add(this.nameFatherTextBox);
+            this.PersonalGroupBox.Controls.Add(this.nidTextBox);
+            this.PersonalGroupBox.Controls.Add(this.label12);
+            this.PersonalGroupBox.Controls.Add(this.label14);
+            this.PersonalGroupBox.Controls.Add(this.parmanentAddressTextBox);
+            this.PersonalGroupBox.Controls.Add(this.presentAddressTextBox);
+            this.PersonalGroupBox.Controls.Add(this.label16);
+            this.PersonalGroupBox.Controls.Add(this.label15);
+            this.PersonalGroupBox.Location = new System.Drawing.Point(459, 12);
+            this.PersonalGroupBox.Name = "PersonalGroupBox";
+            this.PersonalGroupBox.Size = new System.Drawing.Size(396, 229);
+            this.PersonalGroupBox.TabIndex = 86;
+            this.PersonalGroupBox.TabStop = false;
+            this.PersonalGroupBox.Text = "Personal";
             // 
             // label9
             // 
@@ -257,29 +264,38 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Image:";
             // 
-            // groupBox1
+            // officeGroupBox
             // 
-            this.groupBox1.Controls.Add(this.barCodePictureBox);
-            this.groupBox1.Controls.Add(this.uploadButton);
-            this.groupBox1.Controls.Add(this.employeePictureBox);
-            this.groupBox1.Controls.Add(this.outletComboBox);
-            this.groupBox1.Controls.Add(this.joinDateTimePicker);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.nameTextBox);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.emailTextBox);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.contactNoTextBox);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(31, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(396, 342);
-            this.groupBox1.TabIndex = 85;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Office";
+            this.officeGroupBox.Controls.Add(this.codeTextBox);
+            this.officeGroupBox.Controls.Add(this.barCodePictureBox);
+            this.officeGroupBox.Controls.Add(this.uploadButton);
+            this.officeGroupBox.Controls.Add(this.employeePictureBox);
+            this.officeGroupBox.Controls.Add(this.outletComboBox);
+            this.officeGroupBox.Controls.Add(this.joinDateTimePicker);
+            this.officeGroupBox.Controls.Add(this.label1);
+            this.officeGroupBox.Controls.Add(this.nameTextBox);
+            this.officeGroupBox.Controls.Add(this.label2);
+            this.officeGroupBox.Controls.Add(this.label3);
+            this.officeGroupBox.Controls.Add(this.emailTextBox);
+            this.officeGroupBox.Controls.Add(this.label7);
+            this.officeGroupBox.Controls.Add(this.label4);
+            this.officeGroupBox.Controls.Add(this.contactNoTextBox);
+            this.officeGroupBox.Controls.Add(this.label6);
+            this.officeGroupBox.Controls.Add(this.label5);
+            this.officeGroupBox.Location = new System.Drawing.Point(31, 12);
+            this.officeGroupBox.Name = "officeGroupBox";
+            this.officeGroupBox.Size = new System.Drawing.Size(396, 342);
+            this.officeGroupBox.TabIndex = 85;
+            this.officeGroupBox.TabStop = false;
+            this.officeGroupBox.Text = "Office";
+            // 
+            // codeTextBox
+            // 
+            this.codeTextBox.Location = new System.Drawing.Point(84, 60);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.Size = new System.Drawing.Size(190, 20);
+            this.codeTextBox.TabIndex = 24;
+            this.codeTextBox.Visible = false;
             // 
             // barCodePictureBox
             // 
@@ -309,6 +325,7 @@
             // 
             // outletComboBox
             // 
+            this.outletComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.outletComboBox.FormattingEnabled = true;
             this.outletComboBox.Location = new System.Drawing.Point(82, 107);
             this.outletComboBox.Name = "outletComboBox";
@@ -372,27 +389,67 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "Email:";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(162, 350);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 94;
+            this.label8.Text = "Name";
+            // 
+            // serchTextBox
+            // 
+            this.serchTextBox.Location = new System.Drawing.Point(198, 350);
+            this.serchTextBox.Name = "serchTextBox";
+            this.serchTextBox.Size = new System.Drawing.Size(229, 20);
+            this.serchTextBox.TabIndex = 93;
+            this.serchTextBox.TextChanged += new System.EventHandler(this.serchTextBox_TextChanged);
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Location = new System.Drawing.Point(471, 350);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(196, 20);
+            this.searchTextBox.TabIndex = 92;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(433, 353);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(32, 13);
+            this.label11.TabIndex = 91;
+            this.label11.Text = "Code";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
             // EmployeeSetupUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(938, 514);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.serchTextBox);
+            this.Controls.Add(this.searchTextBox);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.showButton);
             this.Controls.Add(this.employeeDataGridView);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.save);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.PersonalGroupBox);
+            this.Controls.Add(this.officeGroupBox);
             this.Name = "EmployeeSetupUi";
             this.Text = "EmployeeSetupUI";
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.PersonalGroupBox.ResumeLayout(false);
+            this.PersonalGroupBox.PerformLayout();
+            this.officeGroupBox.ResumeLayout(false);
+            this.officeGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barCodePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeePictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -402,7 +459,7 @@
         private System.Windows.Forms.DataGridView employeeDataGridView;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button save;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox PersonalGroupBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox conNoTextBoxEM;
         private System.Windows.Forms.Label label10;
@@ -419,7 +476,7 @@
         private System.Windows.Forms.TextBox contactNoTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox officeGroupBox;
         private System.Windows.Forms.PictureBox barCodePictureBox;
         public System.Windows.Forms.Button uploadButton;
         private System.Windows.Forms.PictureBox employeePictureBox;
@@ -431,5 +488,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox serchTextBox;
+        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox codeTextBox;
     }
 }

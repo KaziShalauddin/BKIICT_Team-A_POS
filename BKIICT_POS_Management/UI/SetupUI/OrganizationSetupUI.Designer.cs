@@ -43,8 +43,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.orgGroupBox = new System.Windows.Forms.GroupBox();
+            this.codeTextBox = new System.Windows.Forms.TextBox();
             this.cancelButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.serchTextBox = new System.Windows.Forms.TextBox();
+            this.seTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.orgDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barCodePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
@@ -55,12 +60,14 @@
             // orgDataGridView
             // 
             this.orgDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.orgDataGridView.Location = new System.Drawing.Point(22, 56);
+            this.orgDataGridView.Location = new System.Drawing.Point(22, 65);
             this.orgDataGridView.Name = "orgDataGridView";
             this.orgDataGridView.ReadOnly = true;
             this.orgDataGridView.RowHeadersVisible = false;
+            this.orgDataGridView.RowTemplate.Height = 70;
             this.orgDataGridView.Size = new System.Drawing.Size(500, 279);
             this.orgDataGridView.TabIndex = 18;
+            this.orgDataGridView.DoubleClick += new System.EventHandler(this.orgDataGridView_DoubleClick);
             // 
             // showButton
             // 
@@ -109,7 +116,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(185, 347);
+            this.saveButton.Location = new System.Drawing.Point(266, 347);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 15;
@@ -181,6 +188,7 @@
             // 
             // orgGroupBox
             // 
+            this.orgGroupBox.Controls.Add(this.codeTextBox);
             this.orgGroupBox.Controls.Add(this.cancelButton);
             this.orgGroupBox.Controls.Add(this.barCodePictureBox);
             this.orgGroupBox.Controls.Add(this.nameOrgTextBox);
@@ -201,11 +209,19 @@
             this.orgGroupBox.TabStop = false;
             this.orgGroupBox.Text = "Organization";
             // 
+            // codeTextBox
+            // 
+            this.codeTextBox.Location = new System.Drawing.Point(66, 77);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.Size = new System.Drawing.Size(194, 20);
+            this.codeTextBox.TabIndex = 18;
+            this.codeTextBox.Visible = false;
+            // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(81, 376);
+            this.cancelButton.Location = new System.Drawing.Point(266, 376);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(221, 23);
+            this.cancelButton.Size = new System.Drawing.Size(78, 23);
             this.cancelButton.TabIndex = 17;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -213,6 +229,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.serchTextBox);
+            this.groupBox1.Controls.Add(this.seTextBox);
             this.groupBox1.Controls.Add(this.orgDataGridView);
             this.groupBox1.Controls.Add(this.showButton);
             this.groupBox1.Location = new System.Drawing.Point(427, 26);
@@ -220,6 +240,40 @@
             this.groupBox1.Size = new System.Drawing.Size(549, 355);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(280, 39);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Name";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(280, 14);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(32, 13);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Code";
+            // 
+            // serchTextBox
+            // 
+            this.serchTextBox.Location = new System.Drawing.Point(45, 39);
+            this.serchTextBox.Name = "serchTextBox";
+            this.serchTextBox.Size = new System.Drawing.Size(229, 20);
+            this.serchTextBox.TabIndex = 23;
+            this.serchTextBox.TextChanged += new System.EventHandler(this.serchTextBox_TextChanged);
+            // 
+            // seTextBox
+            // 
+            this.seTextBox.Location = new System.Drawing.Point(45, 11);
+            this.seTextBox.Name = "seTextBox";
+            this.seTextBox.Size = new System.Drawing.Size(229, 20);
+            this.seTextBox.TabIndex = 22;
+            this.seTextBox.TextChanged += new System.EventHandler(this.seTextBox_TextChanged);
             // 
             // OrganizationSetupUi
             // 
@@ -236,6 +290,7 @@
             this.orgGroupBox.ResumeLayout(false);
             this.orgGroupBox.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -258,5 +313,10 @@
         private System.Windows.Forms.GroupBox orgGroupBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox serchTextBox;
+        private System.Windows.Forms.TextBox seTextBox;
+        private System.Windows.Forms.TextBox codeTextBox;
     }
 }

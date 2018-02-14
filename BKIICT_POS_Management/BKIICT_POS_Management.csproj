@@ -85,6 +85,10 @@
     <Compile Include="Migrations\201802110932059_ItemCategory_ProductTem_Classes_Added.Designer.cs">
       <DependentUpon>201802110932059_ItemCategory_ProductTem_Classes_Added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802140546149_first.cs" />
+    <Compile Include="Migrations\201802140546149_first.Designer.cs">
+      <DependentUpon>201802140546149_first.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Expense\ExpenseCategory.cs" />
@@ -230,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802110932059_ItemCategory_ProductTem_Classes_Added.resx">
       <DependentUpon>201802110932059_ItemCategory_ProductTem_Classes_Added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802140546149_first.resx">
+      <DependentUpon>201802140546149_first.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
