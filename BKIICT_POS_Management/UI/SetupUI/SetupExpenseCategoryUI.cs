@@ -82,6 +82,17 @@ namespace BKIICT_POS_Management.UI.SetupUI
         }
         private void saveButton_Click(object sender, EventArgs e)
         {
+            if (db.ExpenseCategories.Count(c => c.Name == nameTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check yourName");
+                    return;
+                }else if (db.ExpenseCategories.Count(c => c.Code == codeTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check your Code");
+                    return;
+                }
+                            
+            
             if (rootCategoryRadioButton.Checked == true)
             {
                 Get_Max_Id();
@@ -157,6 +168,23 @@ namespace BKIICT_POS_Management.UI.SetupUI
             expenseCategoryDataGridView.DataSource =
                 expenseCategories.Select(o => new { o.Id, o.Name, o.Code, o.Description })
                     .Where(o => o.Code == code).ToList();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            var db = new PosManagementDbContext();
+            string searchText = textBox1.Text;
+
+            var organizationInfo = (from expenceCatagory in db.ExpenseCategories
+                                    where (expenceCatagory.Name.Contains(searchText) || expenceCatagory.Code.Contains(searchText))
+                                    select expenceCatagory).ToList();
+            expenseCategoryDataGridView.DataSource = organizationInfo;
+
+        }
+
+        private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsLetter(e.KeyChar) || e.KeyChar == 8 ? false : true;
         }
   
     }

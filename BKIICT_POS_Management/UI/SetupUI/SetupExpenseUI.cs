@@ -76,7 +76,17 @@ namespace BKIICT_POS_Management.UI.SetupUI
         {
             int id;
             bool result = int.TryParse(expenseItemComboBox.SelectedValue.ToString(), out id);
-
+            if (db.ExpenseItems.Count(c => c.Name == nameTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check yourName");
+                    return;
+                }
+            else if (db.ExpenseItems.Count(c => c.Code == codeTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check yourName");
+                    return;
+                }
+                
             expense = new ExpenseItem();
             expense.Name = nameTextBox.Text;
             expense.Code = GetBarCode();
@@ -135,6 +145,23 @@ namespace BKIICT_POS_Management.UI.SetupUI
                 gvId = expenseCategoryDataGridView.CurrentRow.Index;
 
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            var db = new PosManagementDbContext();
+            string searchText = textBox1.Text;
+
+            var organizationInfo = (from exItem in db.ExpenseItems
+                                    where (exItem.Name.Contains(searchText) || exItem.Code.Contains(searchText))
+                                    select exItem).ToList();
+            expenseCategoryDataGridView.DataSource = organizationInfo;
+
+        }
+
+        private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsLetter(e.KeyChar) || e.KeyChar == 8 ? false : true;
         }
         }
 

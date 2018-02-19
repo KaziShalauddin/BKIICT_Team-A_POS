@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using BKIICT_POS_Management.DatabaseContext;
 using BKIICT_POS_Management.Models;
 
@@ -29,7 +30,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
             PosManagementDbContext or = new PosManagementDbContext();
             var organizationInfo = or.Organizations.ToList();
             orgDataGridView.DataSource = organizationInfo;
-
+            ((DataGridViewImageColumn)orgDataGridView.Columns["Logo"]).ImageLayout = DataGridViewImageCellLayout.Stretch;
         }
 
         private byte[] orgLogo = null;
@@ -53,6 +54,11 @@ namespace BKIICT_POS_Management.UI.SetupUI
 
         private PosManagementDbContext org;
 
+        private void nameOrgTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsLetter(e.KeyChar)|| e.KeyChar ==8 ? false : true;
+        }
+
         private void saveButton_Click(object sender, EventArgs e)
         {
             if (org == null)
@@ -61,35 +67,51 @@ namespace BKIICT_POS_Management.UI.SetupUI
             }
             try
             {
-
+                
                 if (org.Organizations.Count(c => c.ContactNo == mobNoTextBox.Text) > 0)
                 {
-                    MessageBox.Show("Change contact No");
+                    MessageBox.Show("Please Check your Contact No");
+                    return;
+                    
                 }
                 else if (org.Organizations.Count(c => c.Code == codeTextBox.Text) > 0)
                 {
-                    MessageBox.Show("Change code No");
+                    MessageBox.Show("Please Check your Code");
+                    return;
+                }
+                else if (org.Organizations.Count(c => c.Name == nameOrgTextBox.Text)>0)
+                {
+                    MessageBox.Show("Please Check yourName");
+                    return;
                 }
                 Organization aOrganization = new Organization();
+
                 aOrganization.Name = nameOrgTextBox.Text;
                 aOrganization.ContactNo = mobNoTextBox.Text;
                 aOrganization.Address = addressTextBox.Text;
                 aOrganization.Logo = orgLogo;
                 aOrganization.Code = GetBarCode();
 
-
-
-                org.Organizations.Add(aOrganization);
-                var check = org.SaveChanges();
-                if (check > 0)
+   
+                if (nameOrgTextBox==null)
                 {
-                    MessageBox.Show("Organization Saved!");
-                    GetOrganizations();
+                    MessageBox.Show("Insert Name");
                 }
                 else
                 {
-                    MessageBox.Show("Organization Not Saved!");
+                    org.Organizations.Add(aOrganization);
+                    var check = org.SaveChanges();
+                    if (check > 0)
+                    {
+                        MessageBox.Show("Organization Saved!");
+                        GetOrganizations();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Organization Not Saved!");
+                    }
                 }
+               
             }
             catch (Exception)
             {
@@ -191,5 +213,25 @@ namespace BKIICT_POS_Management.UI.SetupUI
             //    orgPictureBox = null;
             //}
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            var db = new PosManagementDbContext();
+            string searchText = textBox1.Text;
+
+            var organizationInfo = (from organizations in db.Organizations
+                                    where (organizations.Name.Contains(searchText) || organizations.Code.Contains(searchText) || organizations.Address.Contains(searchText))
+                                    select organizations).ToList();
+            orgDataGridView.DataSource = organizationInfo;
+        }
+
+
+
+        private void mobNoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsNumber(e.KeyChar) || e.KeyChar == 8 ? false : true;
+        }
+
+       
     }
 }

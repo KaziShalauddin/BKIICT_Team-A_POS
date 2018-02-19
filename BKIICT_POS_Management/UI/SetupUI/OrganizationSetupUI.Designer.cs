@@ -43,13 +43,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.orgGroupBox = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.codeTextBox = new System.Windows.Forms.TextBox();
             this.cancelButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.serchTextBox = new System.Windows.Forms.TextBox();
             this.seTextBox = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.orgDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barCodePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
@@ -71,7 +74,7 @@
             // 
             // showButton
             // 
-            this.showButton.Location = new System.Drawing.Point(397, 19);
+            this.showButton.Location = new System.Drawing.Point(434, 19);
             this.showButton.Name = "showButton";
             this.showButton.Size = new System.Drawing.Size(109, 31);
             this.showButton.TabIndex = 16;
@@ -95,6 +98,7 @@
             this.nameOrgTextBox.Name = "nameOrgTextBox";
             this.nameOrgTextBox.Size = new System.Drawing.Size(198, 20);
             this.nameOrgTextBox.TabIndex = 9;
+            this.nameOrgTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameOrgTextBox_KeyPress);
             // 
             // uploadButton
             // 
@@ -149,6 +153,7 @@
             this.mobNoTextBox.Name = "mobNoTextBox";
             this.mobNoTextBox.Size = new System.Drawing.Size(198, 20);
             this.mobNoTextBox.TabIndex = 7;
+            this.mobNoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mobNoTextBox_KeyPress);
             // 
             // label5
             // 
@@ -188,6 +193,8 @@
             // 
             // orgGroupBox
             // 
+            this.orgGroupBox.Controls.Add(this.label9);
+            this.orgGroupBox.Controls.Add(this.label8);
             this.orgGroupBox.Controls.Add(this.codeTextBox);
             this.orgGroupBox.Controls.Add(this.cancelButton);
             this.orgGroupBox.Controls.Add(this.barCodePictureBox);
@@ -209,6 +216,15 @@
             this.orgGroupBox.TabStop = false;
             this.orgGroupBox.Text = "Organization";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(263, 33);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(99, 13);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Hint:Only Character";
+            // 
             // codeTextBox
             // 
             this.codeTextBox.Location = new System.Drawing.Point(66, 77);
@@ -229,6 +245,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.serchTextBox);
@@ -240,6 +257,14 @@
             this.groupBox1.Size = new System.Drawing.Size(549, 355);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(328, 29);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 26;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label7
             // 
@@ -274,6 +299,15 @@
             this.seTextBox.Size = new System.Drawing.Size(229, 20);
             this.seTextBox.TabIndex = 22;
             this.seTextBox.TextChanged += new System.EventHandler(this.seTextBox_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(266, 134);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 13);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Hint: Digit only";
             // 
             // OrganizationSetupUi
             // 
@@ -318,5 +352,8 @@
         private System.Windows.Forms.TextBox serchTextBox;
         private System.Windows.Forms.TextBox seTextBox;
         private System.Windows.Forms.TextBox codeTextBox;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }

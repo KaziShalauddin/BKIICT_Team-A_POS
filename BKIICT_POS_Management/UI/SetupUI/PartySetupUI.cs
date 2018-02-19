@@ -117,6 +117,19 @@ namespace BKIICT_POS_Management.UI.SetupUI
            
             try
             {
+                 if (db.Parties.Count(c => c.Name == nameTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check yourName");
+                    return;
+                }else if (db.Parties.Count(c => c.ContactNo == mobNoTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check your ContactNo");
+                    return;
+                }else if (db.Parties.Count(c => c.Code == textBox1.Text) > 0)
+                {
+                    MessageBox.Show("Please Check your Code");
+                    return;
+                }
                 
                 aParty.Name = nameTextBox.Text;
                 aParty.ContactNo = mobNoTextBox.Text;
@@ -173,6 +186,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
 
             var parties = db.Parties.ToList();
             partyDataGridView.DataSource = parties;
+           
 
             //at first create a list of object using outlet id and name;
             //then use it in the lambda
@@ -242,6 +256,28 @@ namespace BKIICT_POS_Management.UI.SetupUI
             var search = org.Parties.Where(o => o.Code.StartsWith(a)).ToList();
 
             partyDataGridView.DataSource = search;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            var db = new PosManagementDbContext();
+            string searchText = textBox1.Text;
+
+            var organizationInfo = (from aparty in db.Parties
+                                    where (aparty.Name.Contains(searchText) || aParty.Code.Contains(searchText) || aparty.ContactNo.Contains(searchText))
+                                    select aparty).ToList();
+            partyDataGridView.DataSource = organizationInfo;
+
+        }
+
+        private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsLetter(e.KeyChar) || e.KeyChar == 8 ? false : true;
+        }
+
+        private void mobNoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsDigit(e.KeyChar) || e.KeyChar == 8 ? false : true;
         }
 
         

@@ -40,6 +40,7 @@
             this.nextButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.serchTextBox = new System.Windows.Forms.TextBox();
             this.searchTextBox = new System.Windows.Forms.TextBox();
@@ -47,6 +48,7 @@
             this.partyDataGridView = new System.Windows.Forms.DataGridView();
             this.showButton = new System.Windows.Forms.Button();
             this.partyPart2GroupBox = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.barCodePictureBox = new System.Windows.Forms.PictureBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
@@ -62,6 +64,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.partyPart1GroupBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -124,6 +127,8 @@
             // 
             // outletComboBox
             // 
+            this.outletComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.outletComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.outletComboBox.FormattingEnabled = true;
             this.outletComboBox.Location = new System.Drawing.Point(105, 64);
             this.outletComboBox.Name = "outletComboBox";
@@ -132,6 +137,8 @@
             // 
             // organizationComboBox
             // 
+            this.organizationComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.organizationComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.organizationComboBox.FormattingEnabled = true;
             this.organizationComboBox.Location = new System.Drawing.Point(105, 25);
             this.organizationComboBox.Name = "organizationComboBox";
@@ -188,6 +195,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.serchTextBox);
             this.groupBox1.Controls.Add(this.searchTextBox);
@@ -199,6 +207,14 @@
             this.groupBox1.Size = new System.Drawing.Size(549, 570);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(36, 11);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(267, 20);
+            this.textBox2.TabIndex = 98;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label10
             // 
@@ -257,6 +273,8 @@
             // 
             // partyPart2GroupBox
             // 
+            this.partyPart2GroupBox.Controls.Add(this.label13);
+            this.partyPart2GroupBox.Controls.Add(this.label12);
             this.partyPart2GroupBox.Controls.Add(this.textBox1);
             this.partyPart2GroupBox.Controls.Add(this.barCodePictureBox);
             this.partyPart2GroupBox.Controls.Add(this.nameTextBox);
@@ -278,6 +296,15 @@
             this.partyPart2GroupBox.TabIndex = 22;
             this.partyPart2GroupBox.TabStop = false;
             this.partyPart2GroupBox.Text = "Praty( Part 2)";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(295, 20);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(99, 13);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "Hint:Only Character";
             // 
             // textBox1
             // 
@@ -303,6 +330,7 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(198, 20);
             this.nameTextBox.TabIndex = 25;
+            this.nameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameTextBox_KeyPress);
             // 
             // uploadButton
             // 
@@ -364,6 +392,7 @@
             this.mobNoTextBox.Name = "mobNoTextBox";
             this.mobNoTextBox.Size = new System.Drawing.Size(198, 20);
             this.mobNoTextBox.TabIndex = 24;
+            this.mobNoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mobNoTextBox_KeyPress);
             // 
             // label5
             // 
@@ -409,6 +438,15 @@
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 17;
             this.label4.Text = "Address";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(301, 121);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(74, 13);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "Hint:Only Digit";
             // 
             // PartySetupUi
             // 
@@ -471,5 +509,8 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }

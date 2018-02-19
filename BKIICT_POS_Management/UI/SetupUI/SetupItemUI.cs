@@ -22,8 +22,9 @@ namespace BKIICT_POS_Management.UI.SetupUI
             GetItemCategory();
             GetAllItems();
         }
+
         private PosManagementDbContext db = new PosManagementDbContext();
-       ProductItem item;
+        private ProductItem item;
 
         private void GetAllItems()
         {
@@ -31,7 +32,21 @@ namespace BKIICT_POS_Management.UI.SetupUI
 
             itemsDataGridView.DataSource =
                 items.Select
-                    (o => new { o.Id, ItemName = o.Name, o.Code, o.Description, ItemCategoryId = o.ItemCategory.Id, ItemCategoryName = o.ItemCategory.Name }).ToList();
+                    (o =>
+                        new
+                        {
+                            o.Id,
+                            ItemName = o.Name,
+                            o.CostPrice,
+                            o.SalePrice,
+                            o.Code,
+                            o.Image,
+                            o.Description,
+                            ItemCategoryId = o.ItemCategory.Id,
+                            ItemCategoryName = o.ItemCategory.Name
+                        }).ToList();
+            ((DataGridViewImageColumn) itemsDataGridView.Columns["Image"]).ImageLayout =
+                DataGridViewImageCellLayout.Stretch;
         }
 
         private void GetItemCategory()
@@ -41,8 +56,9 @@ namespace BKIICT_POS_Management.UI.SetupUI
             itemCategoryComboBox.DataSource = db.ItemCategories.ToList();
         }
 
-        byte[] itemImage = null;
-        string img = null;
+        private byte[] itemImage = null;
+        private string img = null;
+
         private void uploadButton_Click(object sender, EventArgs e)
         {
 
@@ -56,7 +72,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
             }
             FileStream fs = new FileStream(img, FileMode.Open, FileAccess.Read);
             BinaryReader br = new BinaryReader(fs);
-            itemImage = br.ReadBytes((int)fs.Length);
+            itemImage = br.ReadBytes((int) fs.Length);
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -70,17 +86,27 @@ namespace BKIICT_POS_Management.UI.SetupUI
             }
             try
             {
+                if (db.ProductItems.Count(c => c.Name == nameTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check your Name");
+                    return;
+                }
+                else if (db.ProductItems.Count(c => c.Code == codeTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check Your Code");
+                    return;
+                }
                 item = new ProductItem();
-               
-               item.Name = nameTextBox.Text;
-               item.ItemCategoryId = id;
-               item.Image = itemImage;
-               item.Description = descriptionTextBox.Text;
-               item.CostPrice =Convert.ToDecimal(costPriceTextBox.Text) ;
-               item.SalePrice = Convert.ToDecimal(salePriceTextBox.Text);
+
+                item.Name = nameTextBox.Text;
+                item.ItemCategoryId = id;
+                item.Image = itemImage;
+                item.Description = descriptionTextBox.Text;
+                item.CostPrice = Convert.ToDecimal(costPriceTextBox.Text);
+                item.SalePrice = Convert.ToDecimal(salePriceTextBox.Text);
 
                 Random number = new Random();
-               item.Code = number.Next(100, 200).ToString();
+                item.Code = number.Next(100, 200).ToString();
                 Zen.Barcode.Code128BarcodeDraw barcode = Zen.Barcode.BarcodeDrawFactory.Code128WithChecksum;
                 barCodePictureBox.Image = barcode.Draw(item.Code, 14);
 
@@ -115,8 +141,36 @@ namespace BKIICT_POS_Management.UI.SetupUI
             var items = db.ProductItems.ToList();
 
             itemsDataGridView.DataSource =
-                items.Select(o => new { o.Id, o.Name, o.Code, o.Description })
+                items.Select(o => new {o.Id, o.Name, o.Code, o.Description})
                     .Where(o => o.Code == code).ToList();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            var db = new PosManagementDbContext();
+            string searchText = textBox1.Text;
+
+            var organizationInfo = (from item1 in db.ProductItems
+                where (item1.Name.Contains(searchText) || item1.Code.Contains(searchText))
+                select item1).ToList();
+            itemsDataGridView.DataSource = organizationInfo;
+
+        }
+
+        private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsLetter(e.KeyChar) || e.KeyChar == 8 ? false : true;
+        }
+
+        private void costPriceTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsNumber(e.KeyChar) || e.KeyChar == 8 ? false : true;
+        }
+
+        private void salePriceTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsNumber(e.KeyChar) || e.KeyChar == 8 ? false : true;
+        }
+
     }
 }

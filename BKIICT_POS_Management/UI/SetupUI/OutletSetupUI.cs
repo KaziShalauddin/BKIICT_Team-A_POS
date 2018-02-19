@@ -80,6 +80,22 @@ namespace BKIICT_POS_Management.UI.SetupUI
             }
             try
             {
+                if (db.Outlets.Count(c => c.ContactNo == contactNoTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check your Contact No");
+                    return;
+
+                }
+                else if (db.Outlets.Count(c => c.Code == codeTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check your Code");
+                    return;
+                }
+                else if (db.Outlets.Count(c => c.Name == nameTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check yourName");
+                    return;
+                }
               outlet = new Outlet();
                 outlet.ContactNo = contactNoTextBox.Text;
                 outlet.Name = nameTextBox.Text;
@@ -87,8 +103,6 @@ namespace BKIICT_POS_Management.UI.SetupUI
                 outlet.OrganizationId = id;
                 outlet.Logo = outletLogo;
                 outlet.Code = GetBarCode();
-
-                
 
                 db.Outlets.Add(outlet);
                 var check = db.SaveChanges();
@@ -177,6 +191,33 @@ namespace BKIICT_POS_Management.UI.SetupUI
                 gvId = branchDataGridView.CurrentRow.Index;
 
             }
+        }
+
+        private void organizationComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            var db = new PosManagementDbContext();
+            string searchText = textBox1.Text;
+
+            var organizationInfo = (from aoutlet in db.Outlets
+                                    where (aoutlet.Name.Contains(searchText) || aoutlet.Code.Contains(searchText) || aoutlet.Address.Contains(searchText))
+                                    select aoutlet).ToList();
+            branchDataGridView.DataSource = organizationInfo;
+
+        }
+
+        private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsLetter(e.KeyChar) || e.KeyChar == 8 ? false : true;
+        }
+
+        private void contactNoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsDigit(e.KeyChar) || e.KeyChar == 8 ? false : true;
         }
 
 

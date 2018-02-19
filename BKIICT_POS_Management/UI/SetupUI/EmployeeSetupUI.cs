@@ -64,6 +64,27 @@ namespace BKIICT_POS_Management.UI.SetupUI
 
             try
             {
+                if (db.Employees.Count(c => c.ContactNo == contactNoTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check your Contact No");
+                    return;
+
+                }
+                else if (db.Employees.Count(c => c.Code == codeTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check your Code");
+                    return;
+                }
+                else if (db.Employees.Count(c => c.Name == nameTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check yourName");
+                    return;
+                }
+                else if (db.Employees.Count(c => c.NID == nidTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check NId No");
+                    return;
+                }
                 employee = new Employee();
                 employee.Name = nameTextBox.Text;
                 employee.ContactNo = conNoTextBoxEM.Text;
@@ -149,6 +170,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
                             c.PresentAddress,
                             c.PermanentAddress
                         }).ToList();
+            ((DataGridViewImageColumn)employeeDataGridView.Columns["Img"]).ImageLayout = DataGridViewImageCellLayout.Stretch;
         }
 
         private void serchTextBox_TextChanged(object sender, EventArgs e)
@@ -206,6 +228,64 @@ namespace BKIICT_POS_Management.UI.SetupUI
                 gvId = employeeDataGridView.CurrentRow.Index;
 
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            var db = new PosManagementDbContext();
+            string searchText = textBox1.Text;
+
+            var organizationInfo = (from emplyee in db.Employees
+                                    where (emplyee.Name.Contains(searchText) || emplyee.Code.Contains(searchText) || emplyee.NID.Contains(searchText) ||employee.ContactNo.Contains(searchText))
+                                    select emplyee).ToList();
+            employeeDataGridView.DataSource = organizationInfo;
+
+        }
+
+        private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsLetter(e.KeyChar) || e.KeyChar == 8 ? false : true;
+        }
+
+        private void nameFatherTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsLetter(e.KeyChar) || e.KeyChar == 8 ? false : true;
+        }
+
+        private void nameMotherTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsLetter(e.KeyChar) || e.KeyChar == 8 ? false : true;
+        }
+
+        private void contactNoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsDigit(e.KeyChar) || e.KeyChar == 8 ? false : true;
+        }
+
+        private void conNoTextBoxEM_KeyPress(object sender, KeyPressEventArgs e)
+        {
+    e.Handled= char.IsNumber(e.KeyChar) || e.KeyChar == 8 ? false : true;
+        }
+
+        private void nidTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsNumber(e.KeyChar) || e.KeyChar == 8 ? false : true;
+        }
+
+        private void emailTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            //System.Text.RegularExpressions.Regex email = new System.Text.RegularExpressions.Regex(@"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|"
+            //+ @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)"
+            //+ @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$");
+            //if (emailTextBox.Text.Length > 0)
+            //{
+            //    if (!email.IsMatch(emailTextBox.Text))
+            //    {
+            //        MessageBox.Show("Invalid email", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        emailTextBox.SelectAll();
+            //        e.Cancel = true;
+            //    }
+            //}
         }
     }
     //OutletAddress = c.Outlet.Address,

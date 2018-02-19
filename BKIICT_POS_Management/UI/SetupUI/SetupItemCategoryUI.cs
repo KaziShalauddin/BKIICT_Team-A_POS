@@ -28,7 +28,8 @@ namespace BKIICT_POS_Management.UI.SetupUI
         {
             var itemCategories = db.ItemCategories.ToList();
             itemCategoryDataGridView.DataSource = itemCategories;
-            //itemCategoryDataGridView.RowTemplate.Height = 120;
+            ((DataGridViewImageColumn)itemCategoryDataGridView.Columns["Image"]).ImageLayout = DataGridViewImageCellLayout.Stretch;
+            itemCategoryDataGridView.RowTemplate.Height = 80;
         }
         private PosManagementDbContext db = new PosManagementDbContext();
        // private ItemCategory _itemCategory;
@@ -138,6 +139,17 @@ namespace BKIICT_POS_Management.UI.SetupUI
 
             try
             {
+                if (db.ItemCategories.Count(c => c.Name == nameTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check your Name");
+                    return;
+                }
+                else if (db.ProductItems.Count(c => c.Code == codeTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check Your Code");
+                    return;
+                }
+
                 ItemCategory aItemCategory = new ItemCategory();
                 aItemCategory.Name = nameTextBox.Text;
                
@@ -218,6 +230,23 @@ namespace BKIICT_POS_Management.UI.SetupUI
             string searchForText = searchTextBox.Text;
             var matchingvalues = db.ItemCategories.ToList();
             itemCategoryDataGridView.DataSource = matchingvalues;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            var db = new PosManagementDbContext();
+            string searchText = textBox1.Text;
+
+            var organizationInfo = (from itemCategory in db.ItemCategories
+                                    where (itemCategory.Name.Contains(searchText) || itemCategory.Code.Contains(searchText))
+                                    select itemCategory).ToList();
+            itemCategoryDataGridView.DataSource = organizationInfo;
+
+        }
+
+        private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsLetter(e.KeyChar) || e.KeyChar == 8 ? false : true;
         }
     }
 }

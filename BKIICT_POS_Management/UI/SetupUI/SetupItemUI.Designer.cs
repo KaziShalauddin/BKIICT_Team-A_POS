@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.itemsDataGridView = new System.Windows.Forms.DataGridView();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.codeTextBox = new System.Windows.Forms.TextBox();
             this.barCodePictureBox = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.uploadButton = new System.Windows.Forms.Button();
@@ -52,6 +55,8 @@
             this.salePriceTextBox = new System.Windows.Forms.TextBox();
             this.costPriceTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemsDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -61,28 +66,37 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.itemsDataGridView);
             this.groupBox2.Controls.Add(this.searchButton);
             this.groupBox2.Controls.Add(this.searchTextBox);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(413, 25);
+            this.groupBox2.Location = new System.Drawing.Point(392, 25);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(500, 467);
+            this.groupBox2.Size = new System.Drawing.Size(521, 467);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(100, 21);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(196, 20);
+            this.textBox1.TabIndex = 21;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // itemsDataGridView
             // 
             this.itemsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.itemsDataGridView.Location = new System.Drawing.Point(12, 63);
+            this.itemsDataGridView.Location = new System.Drawing.Point(6, 81);
             this.itemsDataGridView.Name = "itemsDataGridView";
             this.itemsDataGridView.RowTemplate.Height = 70;
-            this.itemsDataGridView.Size = new System.Drawing.Size(473, 398);
+            this.itemsDataGridView.Size = new System.Drawing.Size(509, 398);
             this.itemsDataGridView.TabIndex = 20;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(314, 29);
+            this.searchButton.Location = new System.Drawing.Point(314, 54);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(78, 23);
             this.searchButton.TabIndex = 18;
@@ -92,7 +106,7 @@
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(100, 29);
+            this.searchTextBox.Location = new System.Drawing.Point(100, 57);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(196, 20);
             this.searchTextBox.TabIndex = 17;
@@ -100,7 +114,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(39, 29);
+            this.label6.Location = new System.Drawing.Point(39, 62);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 13);
             this.label6.TabIndex = 16;
@@ -108,6 +122,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.codeTextBox);
             this.groupBox1.Controls.Add(this.barCodePictureBox);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.uploadButton);
@@ -126,11 +144,29 @@
             this.groupBox1.Controls.Add(this.salePriceTextBox);
             this.groupBox1.Controls.Add(this.costPriceTextBox);
             this.groupBox1.Controls.Add(this.nameTextBox);
-            this.groupBox1.Location = new System.Drawing.Point(33, 25);
+            this.groupBox1.Location = new System.Drawing.Point(12, 25);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(374, 497);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(269, 72);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(99, 13);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "Hint:Only Character";
+            // 
+            // codeTextBox
+            // 
+            this.codeTextBox.Enabled = false;
+            this.codeTextBox.Location = new System.Drawing.Point(114, 130);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.Size = new System.Drawing.Size(196, 20);
+            this.codeTextBox.TabIndex = 23;
+            this.codeTextBox.Visible = false;
             // 
             // barCodePictureBox
             // 
@@ -151,7 +187,7 @@
             // 
             // uploadButton
             // 
-            this.uploadButton.Location = new System.Drawing.Point(309, 322);
+            this.uploadButton.Location = new System.Drawing.Point(295, 332);
             this.uploadButton.Name = "uploadButton";
             this.uploadButton.Size = new System.Drawing.Size(61, 23);
             this.uploadButton.TabIndex = 20;
@@ -190,6 +226,8 @@
             // 
             // itemCategoryComboBox
             // 
+            this.itemCategoryComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.itemCategoryComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.itemCategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.itemCategoryComboBox.FormattingEnabled = true;
             this.itemCategoryComboBox.Location = new System.Drawing.Point(114, 50);
@@ -279,6 +317,7 @@
             this.salePriceTextBox.Name = "salePriceTextBox";
             this.salePriceTextBox.Size = new System.Drawing.Size(196, 20);
             this.salePriceTextBox.TabIndex = 10;
+            this.salePriceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.salePriceTextBox_KeyPress);
             // 
             // costPriceTextBox
             // 
@@ -286,6 +325,7 @@
             this.costPriceTextBox.Name = "costPriceTextBox";
             this.costPriceTextBox.Size = new System.Drawing.Size(196, 20);
             this.costPriceTextBox.TabIndex = 10;
+            this.costPriceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.costPriceTextBox_KeyPress);
             // 
             // nameTextBox
             // 
@@ -293,6 +333,25 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(196, 20);
             this.nameTextBox.TabIndex = 10;
+            this.nameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameTextBox_KeyPress);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(241, 182);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(90, 13);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "Hint:Only Number";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(253, 220);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(90, 13);
+            this.label12.TabIndex = 26;
+            this.label12.Text = "Hint:Only Number";
             // 
             // SetupItemUi
             // 
@@ -339,5 +398,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox salePriceTextBox;
         private System.Windows.Forms.TextBox costPriceTextBox;
+        private System.Windows.Forms.TextBox codeTextBox;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
     }
 }
