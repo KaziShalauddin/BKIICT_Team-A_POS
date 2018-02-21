@@ -49,8 +49,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.barCodePictureBox = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.addChildsRadioButton = new System.Windows.Forms.RadioButton();
-            this.addChildComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.itemCategoryDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barCodePictureBox)).BeginInit();
@@ -85,7 +83,7 @@
             // childCategoryRadioButton
             // 
             this.childCategoryRadioButton.AutoSize = true;
-            this.childCategoryRadioButton.Location = new System.Drawing.Point(150, 71);
+            this.childCategoryRadioButton.Location = new System.Drawing.Point(226, 77);
             this.childCategoryRadioButton.Name = "childCategoryRadioButton";
             this.childCategoryRadioButton.Size = new System.Drawing.Size(93, 17);
             this.childCategoryRadioButton.TabIndex = 31;
@@ -97,7 +95,7 @@
             // rootCategoryRadioButton
             // 
             this.rootCategoryRadioButton.AutoSize = true;
-            this.rootCategoryRadioButton.Location = new System.Drawing.Point(15, 71);
+            this.rootCategoryRadioButton.Location = new System.Drawing.Point(91, 77);
             this.rootCategoryRadioButton.Name = "rootCategoryRadioButton";
             this.rootCategoryRadioButton.Size = new System.Drawing.Size(93, 17);
             this.rootCategoryRadioButton.TabIndex = 30;
@@ -256,34 +254,11 @@
             this.label3.TabIndex = 38;
             this.label3.Text = "Code";
             // 
-            // addChildsRadioButton
-            // 
-            this.addChildsRadioButton.AutoSize = true;
-            this.addChildsRadioButton.Location = new System.Drawing.Point(249, 71);
-            this.addChildsRadioButton.Name = "addChildsRadioButton";
-            this.addChildsRadioButton.Size = new System.Drawing.Size(75, 17);
-            this.addChildsRadioButton.TabIndex = 40;
-            this.addChildsRadioButton.TabStop = true;
-            this.addChildsRadioButton.Text = "Add Childs";
-            this.addChildsRadioButton.UseVisualStyleBackColor = true;
-            this.addChildsRadioButton.CheckedChanged += new System.EventHandler(this.addChildsRadioButton_CheckedChanged);
-            // 
-            // addChildComboBox
-            // 
-            this.addChildComboBox.FormattingEnabled = true;
-            this.addChildComboBox.Location = new System.Drawing.Point(114, 102);
-            this.addChildComboBox.Name = "addChildComboBox";
-            this.addChildComboBox.Size = new System.Drawing.Size(196, 21);
-            this.addChildComboBox.TabIndex = 41;
-            this.addChildComboBox.SelectedIndexChanged += new System.EventHandler(this.addChildComboBox_SelectedIndexChanged);
-            // 
             // SetupItemCategoryUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(789, 470);
-            this.Controls.Add(this.addChildComboBox);
-            this.Controls.Add(this.addChildsRadioButton);
             this.Controls.Add(this.barCodePictureBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.uploadButton);
@@ -338,7 +313,5 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox barCodePictureBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RadioButton addChildsRadioButton;
-        private System.Windows.Forms.ComboBox addChildComboBox;
     }
 }

@@ -39,7 +39,8 @@ namespace BKIICT_POS_Management.UI.SetupUI
 
         byte[] orgLogo = null;
         string img = null;
-        string partyType = null;
+        private bool customer = false;
+        private bool supplier = false;
         Party aParty = new Party();
 
         int organizationId;
@@ -51,15 +52,15 @@ namespace BKIICT_POS_Management.UI.SetupUI
         }
 
         private string code = null;
-        private void customerRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            partyType = "Customer";
-        }
+        //private void customerRadioButton_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    partyType = "Customer";
+        //}
 
-        private void supplierRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            partyType = "Supplier";
-        }
+        //private void supplierRadioButton_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    partyType = "Supplier";
+        //}
         private void uploadButton_Click(object sender, EventArgs e)
         {
 
@@ -96,7 +97,10 @@ namespace BKIICT_POS_Management.UI.SetupUI
                 aParty.Address = addressTextBox.Text;
                 aParty.Img = orgLogo;
                 aParty.Email = emailTextBox.Text;
-                aParty.PartyType = partyType;
+               // aParty.PartyType = partyType;
+                aParty.IsDeleted = false;
+                aParty.Customer = customer;
+                aParty.Supplier = supplier;
                 aParty.OrganizationId = organizationId;
                 aParty.OutletId = outletId;
 
@@ -175,7 +179,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
                                         prt.Code,
                                         OrgName = o != null ? o.Name : "Not Found",
                                         OutletName = o != null ? outlet.Name : "Not Found",
-                                        prt.PartyType,
+                                       // prt.PartyType,
                                         prt.Address
                                     }).ToList();
             partyDataGridView.DataSource = parties;
@@ -199,6 +203,14 @@ namespace BKIICT_POS_Management.UI.SetupUI
           
         }
 
-        
+        private void customerCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            customer = true;
+        }
+
+        private void supplierCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            supplier = true;
+        }
     }
 }

@@ -20,69 +20,65 @@ namespace BKIICT_POS_Management.UI.SetupUI
         {
             InitializeComponent();
             itemRootCategoryComboBox.Visible = false;
-            
+
             GetAll_ItemCategories();
         }
         private void GetAll_ItemCategories()
         {
             var itemCategories = db.ItemCategories.ToList();
             itemCategoryDataGridView.DataSource = itemCategories;
-            //itemCategoryDataGridView.RowTemplate.Height = 120;
+        
+            itemCategoryDataGridView.RowTemplate.Height = 60;
+            ((DataGridViewImageColumn)itemCategoryDataGridView.Columns["Image"]).ImageLayout = DataGridViewImageCellLayout.Stretch;
         }
+
         private PosManagementDbContext db = new PosManagementDbContext();
-       // private ItemCategory _itemCategory;
         private int _rootId=0;
         private int _childId;
-        private void Get_Max_Id()
-        {
-            var itemCategoryList = db.ItemCategories.ToList();
-            if(itemCategoryList.Count==0)
-                return;
-             var   maxId = db.ItemCategories.Max(r => r.Id);
-                _rootId = maxId + 1;
-            _childId = 0;
-
-        }
-        
-        private void Get_Max_ChildId()
-        {
-            var sameRoot = db.ItemCategories.Where(r => r.RootId == _rootId);
-            var maxChildId = sameRoot.Max(r => r.ChildId);
-            _childId = maxChildId+1;
-        }
+     
       
         private void rootCategoryRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             itemRootCategoryComboBox.Visible = false;
-            
 
         }
         private void childCategoryRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             itemRootCategoryComboBox.Visible = true;
-            addChildComboBox.Visible =false;
-            GetItemCategory();
 
+            GetItemCategory();
         }
 
         private void GetItemCategory()
         {
             itemRootCategoryComboBox.DataSource = db.ItemCategories.ToList();
-            itemRootCategoryComboBox.ValueMember = "RootId";
+            itemRootCategoryComboBox.ValueMember = "Id";
             itemRootCategoryComboBox.DisplayMember = "Name";
 
            
         }
-       
+        private void AddChildCategory()
+        {
+            var sameRoot = db.ItemCategories.Where(r => r.RootId == id).ToList();
+            if (sameRoot.Count == 0)
+            {
+                _childId = 1;
+                return;
+            }
+            var maxChildId = sameRoot.Max(r => r.ChildId);
+            _childId = maxChildId + 1;
+
+        }
+        int id;
         private void itemRootCategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int id;
+            
             bool result = int.TryParse(itemRootCategoryComboBox.SelectedValue.ToString(), out id);
-            _rootId = id;
            
         }
         byte[] itemImage = null;
         string img = null;
+
         private void uploadButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -102,15 +98,14 @@ namespace BKIICT_POS_Management.UI.SetupUI
         {
             if (rootCategoryRadioButton.Checked==true)
             {
-                Get_Max_Id();
+                _rootId = 0;
+                _childId = 0;
             }
             if (childCategoryRadioButton.Checked == true)
             {
-                Get_Max_ChildId();
-            }
-            if (addChildsRadioButton.Checked == true)
-            {
+                
                 AddChildCategory();
+                _rootId = id;
             }
 
             try
@@ -136,6 +131,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
                 {
                     MessageBox.Show(" Saved! ");
                     GetAll_ItemCategories();
+                    GetItemCategory();
                 }
                 else
                 {
@@ -159,38 +155,6 @@ namespace BKIICT_POS_Management.UI.SetupUI
         private void loadButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show(_rootId.ToString());
-        }
-
-        private void addChildsRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            itemRootCategoryComboBox.Visible = false;
-            addChildComboBox.Visible = true;
-            GetItemCategory_Id();
-        }
-        private void GetItemCategory_Id()
-        {
-            addChildComboBox.DataSource = db.ItemCategories.ToList();
-            addChildComboBox.ValueMember = "Id";
-            addChildComboBox.DisplayMember = "Name";
-        }
-        private void AddChildCategory()
-        {
-           
-            var sameRoot = db.ItemCategories.Where(r => r.RootId == _rootId).ToList();
-            if (sameRoot.Count == 0)
-            {
-                _childId = 1;
-                return;
-            }
-            var maxChildId = sameRoot.Max(r => r.ChildId);
-            _childId = maxChildId + 1;
-
-        }
-        private void addChildComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int id;
-            bool result = int.TryParse(addChildComboBox.SelectedValue.ToString(), out id);
-            _rootId = id;
         }
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)

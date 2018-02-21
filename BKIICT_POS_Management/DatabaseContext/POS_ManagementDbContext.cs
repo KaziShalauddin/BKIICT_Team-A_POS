@@ -21,6 +21,8 @@ namespace BKIICT_POS_Management.DatabaseContext
 
         public DbSet<ExpenseCategory> ExpenseCategories { get; set; }
         public DbSet<ExpenseItem> ExpenseItems { get; set; }
+        public DbSet<ExpenseDetails> ExpenseDetailses { get; set; }
+        public DbSet<ExpenseInfo> ExpenseInfos { get; set; }
 
         public DbSet<ItemCategory> ItemCategories { get; set; }
         public DbSet<ProductItem> ProductItems { get; set; }

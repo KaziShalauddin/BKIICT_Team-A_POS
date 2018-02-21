@@ -46,7 +46,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.branchDataGridView = new System.Windows.Forms.DataGridView();
-            this.searchButton = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBoxAddOraganization.SuspendLayout();
@@ -214,7 +213,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.searchButton);
             this.groupBox1.Controls.Add(this.searchTextBox);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.branchDataGridView);
@@ -232,31 +230,22 @@
             this.branchDataGridView.Size = new System.Drawing.Size(488, 405);
             this.branchDataGridView.TabIndex = 14;
             // 
-            // searchButton
-            // 
-            this.searchButton.Location = new System.Drawing.Point(370, 25);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(78, 23);
-            this.searchButton.TabIndex = 21;
-            this.searchButton.Text = "Search";
-            this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(156, 25);
+            this.searchTextBox.Location = new System.Drawing.Point(277, 30);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(196, 20);
-            this.searchTextBox.TabIndex = 20;
+            this.searchTextBox.Size = new System.Drawing.Size(198, 20);
+            this.searchTextBox.TabIndex = 16;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(95, 25);
+            this.label7.Location = new System.Drawing.Point(194, 33);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 13);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "Code";
+            this.label7.Size = new System.Drawing.Size(62, 13);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Search Key";
             // 
             // OutletSetupUi
             // 
@@ -297,7 +286,6 @@
         private System.Windows.Forms.PictureBox logoPictureBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView branchDataGridView;
-        private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Label label7;
     }

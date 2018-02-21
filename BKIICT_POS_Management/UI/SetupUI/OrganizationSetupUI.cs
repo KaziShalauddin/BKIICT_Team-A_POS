@@ -21,11 +21,14 @@ namespace BKIICT_POS_Management.UI.SetupUI
             GetOrganizations();
         }
 
+        
         private void GetOrganizations()
         {
-            PosManagementDbContext or = new PosManagementDbContext();
-            var organizationInfo = or.Organizations.ToList();
+             db = new PosManagementDbContext();
+            var organizationInfo = db.Organizations.ToList();
             orgDataGridView.DataSource = organizationInfo;
+            orgDataGridView.RowTemplate.Height = 60;
+            ((DataGridViewImageColumn)orgDataGridView.Columns["Logo"]).ImageLayout = DataGridViewImageCellLayout.Stretch;
         }
 
         byte[] orgLogo = null;
@@ -47,12 +50,12 @@ namespace BKIICT_POS_Management.UI.SetupUI
             orgLogo = br.ReadBytes((int)fs.Length);
         }
 
-        private PosManagementDbContext org;
+        private PosManagementDbContext db;
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (org == null)
+            if (db == null)
             {
-                org = new PosManagementDbContext();
+                db = new PosManagementDbContext();
             }
             try
             {
@@ -68,8 +71,8 @@ namespace BKIICT_POS_Management.UI.SetupUI
                 barCodePictureBox.Image = barcode.Draw(aOrganization.Code, 14);
 
                 
-                org.Organizations.Add(aOrganization);
-                var check = org.SaveChanges();
+                db.Organizations.Add(aOrganization);
+                var check = db.SaveChanges();
                 if (check > 0)
                 {
                     MessageBox.Show("Organization Saved!");
@@ -88,14 +91,25 @@ namespace BKIICT_POS_Management.UI.SetupUI
 
         }
 
-        private void showButton_Click(object sender, EventArgs e)
-        {
-            GetOrganizations();
-        }
+        
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            db = new PosManagementDbContext();
+            string searchText = searchTextBox.Text;
+           
+            var organizationInfo = (from organizations in db.Organizations
+                                    where ( organizations.Name.Contains(searchText)|| organizations.ContactNo.Contains(searchText))
+                                    select organizations).ToList();
+            orgDataGridView.DataSource = organizationInfo;
+             orgDataGridView.RowTemplate.Height = 60;
+            ((DataGridViewImageColumn)orgDataGridView.Columns["Logo"]).ImageLayout = DataGridViewImageCellLayout.Stretch;
+
         }
 
         //private void clearButton_Click(object sender, EventArgs e)

@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.partyPart1GroupBox = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.supplierRadioButton = new System.Windows.Forms.RadioButton();
-            this.customerRadioButton = new System.Windows.Forms.RadioButton();
             this.outletComboBox = new System.Windows.Forms.ComboBox();
             this.organizationComboBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -57,8 +54,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.supplierCheckBox = new System.Windows.Forms.CheckBox();
+            this.customerCheckBox = new System.Windows.Forms.CheckBox();
             this.partyPart1GroupBox.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partyDataGridView)).BeginInit();
             this.partyPart2GroupBox.SuspendLayout();
@@ -68,7 +66,8 @@
             // 
             // partyPart1GroupBox
             // 
-            this.partyPart1GroupBox.Controls.Add(this.panel1);
+            this.partyPart1GroupBox.Controls.Add(this.customerCheckBox);
+            this.partyPart1GroupBox.Controls.Add(this.supplierCheckBox);
             this.partyPart1GroupBox.Controls.Add(this.outletComboBox);
             this.partyPart1GroupBox.Controls.Add(this.organizationComboBox);
             this.partyPart1GroupBox.Controls.Add(this.label9);
@@ -83,40 +82,6 @@
             this.partyPart1GroupBox.TabStop = false;
             this.partyPart1GroupBox.Text = "Praty( Part 1)";
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.supplierRadioButton);
-            this.panel1.Controls.Add(this.customerRadioButton);
-            this.panel1.Location = new System.Drawing.Point(105, 91);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 33);
-            this.panel1.TabIndex = 23;
-            // 
-            // supplierRadioButton
-            // 
-            this.supplierRadioButton.AutoSize = true;
-            this.supplierRadioButton.Location = new System.Drawing.Point(117, 12);
-            this.supplierRadioButton.Name = "supplierRadioButton";
-            this.supplierRadioButton.Size = new System.Drawing.Size(63, 17);
-            this.supplierRadioButton.TabIndex = 20;
-            this.supplierRadioButton.TabStop = true;
-            this.supplierRadioButton.Text = "Supplier";
-            this.supplierRadioButton.UseVisualStyleBackColor = true;
-            this.supplierRadioButton.CheckedChanged += new System.EventHandler(this.supplierRadioButton_CheckedChanged);
-            // 
-            // customerRadioButton
-            // 
-            this.customerRadioButton.AutoSize = true;
-            this.customerRadioButton.Location = new System.Drawing.Point(22, 12);
-            this.customerRadioButton.Name = "customerRadioButton";
-            this.customerRadioButton.Size = new System.Drawing.Size(69, 17);
-            this.customerRadioButton.TabIndex = 20;
-            this.customerRadioButton.TabStop = true;
-            this.customerRadioButton.Text = "Customer";
-            this.customerRadioButton.UseVisualStyleBackColor = true;
-            this.customerRadioButton.CheckedChanged += new System.EventHandler(this.customerRadioButton_CheckedChanged);
-            // 
             // outletComboBox
             // 
             this.outletComboBox.FormattingEnabled = true;
@@ -124,7 +89,6 @@
             this.outletComboBox.Name = "outletComboBox";
             this.outletComboBox.Size = new System.Drawing.Size(178, 21);
             this.outletComboBox.TabIndex = 19;
-           
             // 
             // organizationComboBox
             // 
@@ -358,6 +322,28 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "Address";
             // 
+            // supplierCheckBox
+            // 
+            this.supplierCheckBox.AutoSize = true;
+            this.supplierCheckBox.Location = new System.Drawing.Point(105, 98);
+            this.supplierCheckBox.Name = "supplierCheckBox";
+            this.supplierCheckBox.Size = new System.Drawing.Size(64, 17);
+            this.supplierCheckBox.TabIndex = 20;
+            this.supplierCheckBox.Text = "Supplier";
+            this.supplierCheckBox.UseVisualStyleBackColor = true;
+            this.supplierCheckBox.CheckedChanged += new System.EventHandler(this.supplierCheckBox_CheckedChanged);
+            // 
+            // customerCheckBox
+            // 
+            this.customerCheckBox.AutoSize = true;
+            this.customerCheckBox.Location = new System.Drawing.Point(203, 98);
+            this.customerCheckBox.Name = "customerCheckBox";
+            this.customerCheckBox.Size = new System.Drawing.Size(70, 17);
+            this.customerCheckBox.TabIndex = 20;
+            this.customerCheckBox.Text = "Customer";
+            this.customerCheckBox.UseVisualStyleBackColor = true;
+            this.customerCheckBox.CheckedChanged += new System.EventHandler(this.customerCheckBox_CheckedChanged);
+            // 
             // PartySetupUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,8 +356,6 @@
             this.Text = "PartySetupUI";
             this.partyPart1GroupBox.ResumeLayout(false);
             this.partyPart1GroupBox.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.partyDataGridView)).EndInit();
             this.partyPart2GroupBox.ResumeLayout(false);
@@ -408,10 +392,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RadioButton supplierRadioButton;
-        private System.Windows.Forms.RadioButton customerRadioButton;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button nextButton;
+        private System.Windows.Forms.CheckBox customerCheckBox;
+        private System.Windows.Forms.CheckBox supplierCheckBox;
     }
 }

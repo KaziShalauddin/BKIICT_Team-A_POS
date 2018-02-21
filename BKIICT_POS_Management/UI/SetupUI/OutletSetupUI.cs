@@ -29,7 +29,9 @@ namespace BKIICT_POS_Management.UI.SetupUI
             var outleList = db.Outlets.ToList();
 
             branchDataGridView.DataSource =
-                outleList.Select(o => new { o.Id, Organization = o.Organization.Name, o.Name, o.Code, o.ContactNo, o.Address }).ToList();
+                outleList.Select(o => new { o.Id, Organization = o.Organization.Name, o.Name,o.Logo, o.Code, o.ContactNo, o.Address }).ToList();
+            branchDataGridView.RowTemplate.Height = 60;
+            ((DataGridViewImageColumn)branchDataGridView.Columns["Logo"]).ImageLayout = DataGridViewImageCellLayout.Stretch;
         }
 
         private PosManagementDbContext db = new PosManagementDbContext();
@@ -39,6 +41,8 @@ namespace BKIICT_POS_Management.UI.SetupUI
             organizationComboBox.ValueMember = "Id";
             organizationComboBox.DisplayMember = "Name";
             organizationComboBox.DataSource = db.Organizations.ToList();
+            organizationComboBox.AutoCompleteMode = AutoCompleteMode.Suggest;
+            organizationComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -119,6 +123,20 @@ namespace BKIICT_POS_Management.UI.SetupUI
             branchDataGridView.DataSource =
                 outlets.Select(o => new { o.Id, Organization = o.Organization.Name, o.Name, o.Code, o.ContactNo, o.Address })
                     .Where(o => o.Code == code).ToList();
+        }
+
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+           // db = new PosManagementDbContext();
+            string searchText = searchTextBox.Text;
+
+            var outletInfo = (from outlets in db.Outlets
+                                    where (outlets.Name.Contains(searchText) || outlets.ContactNo.Contains(searchText))
+                                    select outlets).ToList();
+            branchDataGridView.DataSource = outletInfo;
+            branchDataGridView.RowTemplate.Height = 60;
+            ((DataGridViewImageColumn)branchDataGridView.Columns["Logo"]).ImageLayout = DataGridViewImageCellLayout.Stretch;
+
         }
     }
 }

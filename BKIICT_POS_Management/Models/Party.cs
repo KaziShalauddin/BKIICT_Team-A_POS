@@ -24,7 +24,10 @@ namespace BKIICT_POS_Management.Models
         [StringLength(100)]
         public string Address { get; set; }
 
-        public string PartyType { get; set; }
+        public bool Customer { get; set; }
+        public bool Supplier { get; set; }
+
+        public bool IsDeleted { get; set; }
 
         public int? OutletId { get; set; }
         public Outlet Outlet { get; set; }

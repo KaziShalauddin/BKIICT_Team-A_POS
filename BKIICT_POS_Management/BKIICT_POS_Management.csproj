@@ -85,9 +85,27 @@
     <Compile Include="Migrations\201802110932059_ItemCategory_ProductTem_Classes_Added.Designer.cs">
       <DependentUpon>201802110932059_ItemCategory_ProductTem_Classes_Added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802140818089_ExpenseDetails_Class_Added.cs" />
+    <Compile Include="Migrations\201802140818089_ExpenseDetails_Class_Added.Designer.cs">
+      <DependentUpon>201802140818089_ExpenseDetails_Class_Added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802140845372_ExpenseInfo_Added_ExpenseInfoId_PropertyAddedTo_ExpenseDetails_Class.cs" />
+    <Compile Include="Migrations\201802140845372_ExpenseInfo_Added_ExpenseInfoId_PropertyAddedTo_ExpenseDetails_Class.Designer.cs">
+      <DependentUpon>201802140845372_ExpenseInfo_Added_ExpenseInfoId_PropertyAddedTo_ExpenseDetails_Class.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802170857519_ExpenseInfo_Some_PropertyAdded.cs" />
+    <Compile Include="Migrations\201802170857519_ExpenseInfo_Some_PropertyAdded.Designer.cs">
+      <DependentUpon>201802170857519_ExpenseInfo_Some_PropertyAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802210806536_PartyModel_propertyAdded_Customer_Supplier_IsDeleted.cs" />
+    <Compile Include="Migrations\201802210806536_PartyModel_propertyAdded_Customer_Supplier_IsDeleted.Designer.cs">
+      <DependentUpon>201802210806536_PartyModel_propertyAdded_Customer_Supplier_IsDeleted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Expense\ExpenseCategory.cs" />
+    <Compile Include="Models\Expense\ExpenseDetails.cs" />
+    <Compile Include="Models\Expense\ExpenseInfo.cs" />
     <Compile Include="Models\Expense\ExpenseItem.cs" />
     <Compile Include="Models\ItemModels\ProductItem.cs" />
     <Compile Include="Models\ItemModels\ItemCategory.cs" />
@@ -231,6 +249,18 @@
     <EmbeddedResource Include="Migrations\201802110932059_ItemCategory_ProductTem_Classes_Added.resx">
       <DependentUpon>201802110932059_ItemCategory_ProductTem_Classes_Added.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802140818089_ExpenseDetails_Class_Added.resx">
+      <DependentUpon>201802140818089_ExpenseDetails_Class_Added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802140845372_ExpenseInfo_Added_ExpenseInfoId_PropertyAddedTo_ExpenseDetails_Class.resx">
+      <DependentUpon>201802140845372_ExpenseInfo_Added_ExpenseInfoId_PropertyAddedTo_ExpenseDetails_Class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802170857519_ExpenseInfo_Some_PropertyAdded.resx">
+      <DependentUpon>201802170857519_ExpenseInfo_Some_PropertyAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802210806536_PartyModel_propertyAdded_Customer_Supplier_IsDeleted.resx">
+      <DependentUpon>201802210806536_PartyModel_propertyAdded_Customer_Supplier_IsDeleted.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -240,6 +270,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Operations\ExpenseOperationUI.resx">
+      <DependentUpon>ExpenseOperationUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Operations\OperationsWelcomeUI.resx">
       <DependentUpon>OperationsWelcomeUI.cs</DependentUpon>
     </EmbeddedResource>

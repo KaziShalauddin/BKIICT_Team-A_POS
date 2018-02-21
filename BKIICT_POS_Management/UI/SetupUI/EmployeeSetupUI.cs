@@ -19,6 +19,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
         {
             InitializeComponent();
             GetOutLet();
+            GetEmployees();
         }
 
         private void GetOutLet()
@@ -101,11 +102,16 @@ namespace BKIICT_POS_Management.UI.SetupUI
 
         private void showButton_Click(object sender, EventArgs e)
         {
-            var employees  = db.Employees.ToList();
+            GetEmployees();
+        }
+
+        private void GetEmployees()
+        {
+            var employees = db.Employees.ToList();
 
             employeeDataGridView.DataSource =
                 employees.Select
-                (c => new { OutletAddress = c.Outlet.Address, c.Id,c.Code, c.Name,c.NID,c.ContactNo,c.Email,c.EmergencyContactNo,c.FathersName,c.MothersName,c.Img }).ToList();
+                (c => new { OutletAddress = c.Outlet.Address, c.Id, c.Code, c.Name, c.NID, c.ContactNo, c.Email, c.EmergencyContactNo, c.FathersName, c.MothersName, c.Img }).ToList();
         }
     }
     //OutletAddress = c.Outlet.Address,

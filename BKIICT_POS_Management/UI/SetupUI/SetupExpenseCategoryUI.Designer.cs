@@ -45,8 +45,6 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.codeTextBox = new System.Windows.Forms.TextBox();
-            this.addChildsRadioButton = new System.Windows.Forms.RadioButton();
-            this.addChildComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.expenseCategoryDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,7 +107,7 @@
             // rootCategoryRadioButton
             // 
             this.rootCategoryRadioButton.AutoSize = true;
-            this.rootCategoryRadioButton.Location = new System.Drawing.Point(12, 67);
+            this.rootCategoryRadioButton.Location = new System.Drawing.Point(116, 67);
             this.rootCategoryRadioButton.Name = "rootCategoryRadioButton";
             this.rootCategoryRadioButton.Size = new System.Drawing.Size(93, 17);
             this.rootCategoryRadioButton.TabIndex = 4;
@@ -121,7 +119,7 @@
             // childCategoryRadioButton
             // 
             this.childCategoryRadioButton.AutoSize = true;
-            this.childCategoryRadioButton.Location = new System.Drawing.Point(147, 67);
+            this.childCategoryRadioButton.Location = new System.Drawing.Point(251, 67);
             this.childCategoryRadioButton.Name = "childCategoryRadioButton";
             this.childCategoryRadioButton.Size = new System.Drawing.Size(93, 17);
             this.childCategoryRadioButton.TabIndex = 4;
@@ -208,34 +206,11 @@
             this.codeTextBox.Size = new System.Drawing.Size(196, 20);
             this.codeTextBox.TabIndex = 2;
             // 
-            // addChildsRadioButton
-            // 
-            this.addChildsRadioButton.AutoSize = true;
-            this.addChildsRadioButton.Location = new System.Drawing.Point(270, 67);
-            this.addChildsRadioButton.Name = "addChildsRadioButton";
-            this.addChildsRadioButton.Size = new System.Drawing.Size(75, 17);
-            this.addChildsRadioButton.TabIndex = 41;
-            this.addChildsRadioButton.TabStop = true;
-            this.addChildsRadioButton.Text = "Add Childs";
-            this.addChildsRadioButton.UseVisualStyleBackColor = true;
-            this.addChildsRadioButton.CheckedChanged += new System.EventHandler(this.addChildsRadioButton_CheckedChanged);
-            // 
-            // addChildComboBox
-            // 
-            this.addChildComboBox.FormattingEnabled = true;
-            this.addChildComboBox.Location = new System.Drawing.Point(133, 95);
-            this.addChildComboBox.Name = "addChildComboBox";
-            this.addChildComboBox.Size = new System.Drawing.Size(196, 21);
-            this.addChildComboBox.TabIndex = 42;
-            this.addChildComboBox.SelectedIndexChanged += new System.EventHandler(this.addChildComboBox_SelectedIndexChanged);
-            // 
             // SetupExpenseCategoryUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(813, 369);
-            this.Controls.Add(this.addChildComboBox);
-            this.Controls.Add(this.addChildsRadioButton);
             this.Controls.Add(this.expenseCategoryDataGridView);
             this.Controls.Add(this.expenseRootCategoryComboBox);
             this.Controls.Add(this.categoryLabel);
@@ -280,7 +255,5 @@
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox codeTextBox;
-        private System.Windows.Forms.RadioButton addChildsRadioButton;
-        private System.Windows.Forms.ComboBox addChildComboBox;
     }
 }

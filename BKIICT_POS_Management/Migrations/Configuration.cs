@@ -9,7 +9,7 @@ namespace BKIICT_POS_Management.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "BKIICT_POS_Management.DatabaseContext.PosManagementDbContext";
         }
 
