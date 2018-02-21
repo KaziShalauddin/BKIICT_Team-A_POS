@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
             organizationComboBox.SelectedIndexChanged +=organizationComboBox_SelectedIndexChanged;
             GetOrganizations();
             GetPartyTable_V2();
+            GetBarCode();
             //  GetPartyTable();
             //List<Outlet>outlets= db.Outlets.ToList();
 
@@ -76,7 +78,32 @@ namespace BKIICT_POS_Management.UI.SetupUI
             BinaryReader br = new BinaryReader(fs);
             orgLogo = br.ReadBytes((int)fs.Length);
         }
-       
+
+        private string GetBarCode()
+        {
+            Random number = new Random();
+            var l = new Organization();
+            l.Code = number.Next(100, 200).ToString();
+            string b = l.Code;
+            Bitmap a = new Bitmap(b.Length*50, 60);
+            using (Graphics graphic = Graphics.FromImage(a))
+            {
+                Font o = new System.Drawing.Font("IDAutomationHC39M Free Version", 10);
+                PointF f = new PointF(2f, 2f);
+                SolidBrush brush = new SolidBrush(Color.Black);
+                SolidBrush white = new SolidBrush(Color.White);
+                graphic.FillRectangle(white, 0, 0, a.Width, a.Height);
+                graphic.DrawString("*" + b + "*", o, brush, f);
+            }
+            using (MemoryStream ms = new MemoryStream())
+            {
+                a.Save(ms, ImageFormat.Png);
+                barCodePictureBox.Image = a;
+                barCodePictureBox.Height = a.Height;
+                barCodePictureBox.Width = a.Width;
+            }
+            return l.Code;
+        }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
@@ -91,6 +118,19 @@ namespace BKIICT_POS_Management.UI.SetupUI
            
             try
             {
+                 if (db.Parties.Count(c => c.Name == nameTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check yourName");
+                    return;
+                }else if (db.Parties.Count(c => c.ContactNo == mobNoTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check your ContactNo");
+                    return;
+                }else if (db.Parties.Count(c => c.Code == textBox1.Text) > 0)
+                {
+                    MessageBox.Show("Please Check your Code");
+                    return;
+                }
                 
                 aParty.Name = nameTextBox.Text;
                 aParty.ContactNo = mobNoTextBox.Text;
@@ -103,11 +143,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
                 aParty.Supplier = supplier;
                 aParty.OrganizationId = organizationId;
                 aParty.OutletId = outletId;
-
-                Random number = new Random();
-                aParty.Code = number.Next(100, 200).ToString();
-                Zen.Barcode.Code128BarcodeDraw barcode = Zen.Barcode.BarcodeDrawFactory.Code128WithChecksum;
-                barCodePictureBox.Image = barcode.Draw(aParty.Code, 14);
+                aParty.Code = GetBarCode();
 
 
                 //org.Organizations.Add(aOrganization);
@@ -154,6 +190,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
 
             var parties = db.Parties.ToList();
             partyDataGridView.DataSource = parties;
+           
 
             //at first create a list of object using outlet id and name;
             //then use it in the lambda
@@ -203,6 +240,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
           
         }
 
+<<<<<<< HEAD
         private void customerCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             customer = true;
@@ -212,5 +250,52 @@ namespace BKIICT_POS_Management.UI.SetupUI
         {
             supplier = true;
         }
+=======
+        private void serchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var org = new PosManagementDbContext();
+            String a = serchTextBox.Text;
+            //var search1= 
+            //var s = org.Organizations.Where(o => o.Code.StartsWith(a)).ToList();
+            var search = org.Parties.Where(o => o.Name.StartsWith(a)).ToList();
+
+            partyDataGridView.DataSource = search;
+        }
+
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var org = new PosManagementDbContext();
+            String a = searchTextBox.Text;
+            //var search1= 
+            //var s = org.Organizations.Where(o => o.Code.StartsWith(a)).ToList();
+            var search = org.Parties.Where(o => o.Code.StartsWith(a)).ToList();
+
+            partyDataGridView.DataSource = search;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            var db = new PosManagementDbContext();
+            string searchText = textBox1.Text;
+
+            var organizationInfo = (from aparty in db.Parties
+                                    where (aparty.Name.Contains(searchText) || aParty.Code.Contains(searchText) || aparty.ContactNo.Contains(searchText))
+                                    select aparty).ToList();
+            partyDataGridView.DataSource = organizationInfo;
+
+        }
+
+        private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsLetter(e.KeyChar) || e.KeyChar == 8 ? false : true;
+        }
+
+        private void mobNoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsDigit(e.KeyChar) || e.KeyChar == 8 ? false : true;
+        }
+
+        
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
     }
 }

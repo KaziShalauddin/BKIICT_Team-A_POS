@@ -42,10 +42,22 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.orgGroupBox = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.codeTextBox = new System.Windows.Forms.TextBox();
             this.cancelButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+<<<<<<< HEAD
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+=======
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.serchTextBox = new System.Windows.Forms.TextBox();
+            this.seTextBox = new System.Windows.Forms.TextBox();
+            this.updateButton = new System.Windows.Forms.Button();
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             ((System.ComponentModel.ISupportInitialize)(this.orgDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barCodePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
@@ -56,13 +68,32 @@
             // orgDataGridView
             // 
             this.orgDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.orgDataGridView.Location = new System.Drawing.Point(22, 56);
+            this.orgDataGridView.Location = new System.Drawing.Point(22, 65);
             this.orgDataGridView.Name = "orgDataGridView";
             this.orgDataGridView.ReadOnly = true;
             this.orgDataGridView.RowHeadersVisible = false;
+<<<<<<< HEAD
             this.orgDataGridView.Size = new System.Drawing.Size(508, 341);
+=======
+            this.orgDataGridView.RowTemplate.Height = 70;
+            this.orgDataGridView.Size = new System.Drawing.Size(500, 279);
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             this.orgDataGridView.TabIndex = 18;
+            this.orgDataGridView.DoubleClick += new System.EventHandler(this.orgDataGridView_DoubleClick);
             // 
+<<<<<<< HEAD
+=======
+            // showButton
+            // 
+            this.showButton.Location = new System.Drawing.Point(434, 19);
+            this.showButton.Name = "showButton";
+            this.showButton.Size = new System.Drawing.Size(109, 31);
+            this.showButton.TabIndex = 16;
+            this.showButton.Text = "Show";
+            this.showButton.UseVisualStyleBackColor = true;
+            this.showButton.Click += new System.EventHandler(this.showButton_Click);
+            // 
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             // barCodePictureBox
             // 
             this.barCodePictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -79,6 +110,7 @@
             this.nameOrgTextBox.Name = "nameOrgTextBox";
             this.nameOrgTextBox.Size = new System.Drawing.Size(198, 20);
             this.nameOrgTextBox.TabIndex = 9;
+            this.nameOrgTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameOrgTextBox_KeyPress);
             // 
             // uploadButton
             // 
@@ -100,7 +132,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(185, 347);
+            this.saveButton.Location = new System.Drawing.Point(266, 347);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 15;
@@ -133,6 +165,7 @@
             this.mobNoTextBox.Name = "mobNoTextBox";
             this.mobNoTextBox.Size = new System.Drawing.Size(198, 20);
             this.mobNoTextBox.TabIndex = 7;
+            this.mobNoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mobNoTextBox_KeyPress);
             // 
             // label5
             // 
@@ -172,6 +205,10 @@
             // 
             // orgGroupBox
             // 
+            this.orgGroupBox.Controls.Add(this.updateButton);
+            this.orgGroupBox.Controls.Add(this.label9);
+            this.orgGroupBox.Controls.Add(this.label8);
+            this.orgGroupBox.Controls.Add(this.codeTextBox);
             this.orgGroupBox.Controls.Add(this.cancelButton);
             this.orgGroupBox.Controls.Add(this.barCodePictureBox);
             this.orgGroupBox.Controls.Add(this.nameOrgTextBox);
@@ -192,11 +229,43 @@
             this.orgGroupBox.TabStop = false;
             this.orgGroupBox.Text = "Organization";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(266, 134);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 13);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Hint: Digit only";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(263, 33);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(99, 13);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Hint:Only Character";
+            // 
+            // codeTextBox
+            // 
+            this.codeTextBox.Location = new System.Drawing.Point(66, 77);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.Size = new System.Drawing.Size(194, 20);
+            this.codeTextBox.TabIndex = 18;
+            this.codeTextBox.Visible = false;
+            // 
             // cancelButton
             // 
+<<<<<<< HEAD
             this.cancelButton.Location = new System.Drawing.Point(73, 347);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(85, 23);
+=======
+            this.cancelButton.Location = new System.Drawing.Point(266, 376);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(78, 23);
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             this.cancelButton.TabIndex = 17;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -204,6 +273,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.serchTextBox);
+            this.groupBox1.Controls.Add(this.seTextBox);
             this.groupBox1.Controls.Add(this.orgDataGridView);
             this.groupBox1.Controls.Add(this.searchTextBox);
             this.groupBox1.Controls.Add(this.label6);
@@ -213,6 +287,7 @@
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             // 
+<<<<<<< HEAD
             // searchTextBox
             // 
             this.searchTextBox.Location = new System.Drawing.Point(278, 25);
@@ -220,15 +295,67 @@
             this.searchTextBox.Size = new System.Drawing.Size(198, 20);
             this.searchTextBox.TabIndex = 9;
             this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
+=======
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(328, 29);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 26;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(280, 39);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Name";
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+<<<<<<< HEAD
             this.label6.Location = new System.Drawing.Point(195, 28);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "Search Key";
+=======
+            this.label6.Location = new System.Drawing.Point(280, 14);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(32, 13);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Code";
+            // 
+            // serchTextBox
+            // 
+            this.serchTextBox.Location = new System.Drawing.Point(45, 39);
+            this.serchTextBox.Name = "serchTextBox";
+            this.serchTextBox.Size = new System.Drawing.Size(229, 20);
+            this.serchTextBox.TabIndex = 23;
+            this.serchTextBox.TextChanged += new System.EventHandler(this.serchTextBox_TextChanged);
+            // 
+            // seTextBox
+            // 
+            this.seTextBox.Location = new System.Drawing.Point(45, 11);
+            this.seTextBox.Name = "seTextBox";
+            this.seTextBox.Size = new System.Drawing.Size(229, 20);
+            this.seTextBox.TabIndex = 22;
+            this.seTextBox.TextChanged += new System.EventHandler(this.seTextBox_TextChanged);
+            // 
+            // updateButton
+            // 
+            this.updateButton.Location = new System.Drawing.Point(172, 347);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(75, 23);
+            this.updateButton.TabIndex = 21;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             // 
             // OrganizationSetupUi
             // 
@@ -267,7 +394,19 @@
         private System.Windows.Forms.GroupBox orgGroupBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button cancelButton;
+<<<<<<< HEAD
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Label label6;
+=======
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox serchTextBox;
+        private System.Windows.Forms.TextBox seTextBox;
+        private System.Windows.Forms.TextBox codeTextBox;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button updateButton;
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
     }
 }

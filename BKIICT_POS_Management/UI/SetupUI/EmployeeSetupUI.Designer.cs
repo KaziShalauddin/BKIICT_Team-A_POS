@@ -31,6 +31,14 @@
             this.employeeDataGridView = new System.Windows.Forms.DataGridView();
             this.cancelButton = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
+<<<<<<< HEAD
+=======
+            this.PersonalGroupBox = new System.Windows.Forms.GroupBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             this.label9 = new System.Windows.Forms.Label();
             this.conNoTextBoxEM = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -47,6 +55,14 @@
             this.contactNoTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+<<<<<<< HEAD
+=======
+            this.officeGroupBox = new System.Windows.Forms.GroupBox();
+            this.emailLabel = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.codeTextBox = new System.Windows.Forms.TextBox();
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             this.barCodePictureBox = new System.Windows.Forms.PictureBox();
             this.uploadButton = new System.Windows.Forms.Button();
             this.employeePictureBox = new System.Windows.Forms.PictureBox();
@@ -58,6 +74,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -67,23 +84,67 @@
             ((System.ComponentModel.ISupportInitialize)(this.barCodePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeePictureBox)).BeginInit();
             this.tabControl1.SuspendLayout();
+=======
+            this.label8 = new System.Windows.Forms.Label();
+            this.serchTextBox = new System.Windows.Forms.TextBox();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.Personal = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.updateButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).BeginInit();
+            this.PersonalGroupBox.SuspendLayout();
+            this.officeGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barCodePictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeePictureBox)).BeginInit();
+            this.Personal.SuspendLayout();
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
+<<<<<<< HEAD
             // employeeDataGridView
             // 
             this.employeeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.employeeDataGridView.Location = new System.Drawing.Point(12, 498);
             this.employeeDataGridView.Name = "employeeDataGridView";
             this.employeeDataGridView.Size = new System.Drawing.Size(499, 223);
+=======
+            // showButton
+            // 
+            this.showButton.Location = new System.Drawing.Point(845, 51);
+            this.showButton.Name = "showButton";
+            this.showButton.Size = new System.Drawing.Size(143, 30);
+            this.showButton.TabIndex = 90;
+            this.showButton.Text = "Show";
+            this.showButton.UseVisualStyleBackColor = true;
+            this.showButton.Click += new System.EventHandler(this.showButton_Click);
+            // 
+            // employeeDataGridView
+            // 
+            this.employeeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.employeeDataGridView.Location = new System.Drawing.Point(440, 87);
+            this.employeeDataGridView.Name = "employeeDataGridView";
+            this.employeeDataGridView.RowTemplate.Height = 70;
+            this.employeeDataGridView.Size = new System.Drawing.Size(548, 415);
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             this.employeeDataGridView.TabIndex = 89;
+            this.employeeDataGridView.DoubleClick += new System.EventHandler(this.employeeDataGridView_DoubleClick);
             // 
             // cancelButton
             // 
+<<<<<<< HEAD
             this.cancelButton.Location = new System.Drawing.Point(262, 427);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(94, 21);
+=======
+            this.cancelButton.Location = new System.Drawing.Point(142, 261);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(117, 30);
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             this.cancelButton.TabIndex = 87;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -91,14 +152,84 @@
             // 
             // save
             // 
+<<<<<<< HEAD
             this.save.Location = new System.Drawing.Point(395, 427);
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(100, 21);
+=======
+            this.save.Location = new System.Drawing.Point(15, 262);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(117, 30);
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             this.save.TabIndex = 88;
             this.save.Text = "Save";
             this.save.UseVisualStyleBackColor = true;
             this.save.Click += new System.EventHandler(this.save_Click);
             // 
+<<<<<<< HEAD
+=======
+            // PersonalGroupBox
+            // 
+            this.PersonalGroupBox.Controls.Add(this.label21);
+            this.PersonalGroupBox.Controls.Add(this.label20);
+            this.PersonalGroupBox.Controls.Add(this.label18);
+            this.PersonalGroupBox.Controls.Add(this.label17);
+            this.PersonalGroupBox.Controls.Add(this.label9);
+            this.PersonalGroupBox.Controls.Add(this.conNoTextBoxEM);
+            this.PersonalGroupBox.Controls.Add(this.label10);
+            this.PersonalGroupBox.Controls.Add(this.nameMotherTextBox);
+            this.PersonalGroupBox.Controls.Add(this.nameFatherTextBox);
+            this.PersonalGroupBox.Controls.Add(this.nidTextBox);
+            this.PersonalGroupBox.Controls.Add(this.label12);
+            this.PersonalGroupBox.Controls.Add(this.label14);
+            this.PersonalGroupBox.Controls.Add(this.parmanentAddressTextBox);
+            this.PersonalGroupBox.Controls.Add(this.presentAddressTextBox);
+            this.PersonalGroupBox.Controls.Add(this.label16);
+            this.PersonalGroupBox.Controls.Add(this.label15);
+            this.PersonalGroupBox.Location = new System.Drawing.Point(6, 6);
+            this.PersonalGroupBox.Name = "PersonalGroupBox";
+            this.PersonalGroupBox.Size = new System.Drawing.Size(396, 249);
+            this.PersonalGroupBox.TabIndex = 86;
+            this.PersonalGroupBox.TabStop = false;
+            this.PersonalGroupBox.Text = "Personal";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(325, 54);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(58, 13);
+            this.label21.TabIndex = 23;
+            this.label21.Text = "Only Digite";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(323, 28);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(58, 13);
+            this.label20.TabIndex = 22;
+            this.label20.Text = "Only Digite";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(322, 106);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(77, 13);
+            this.label18.TabIndex = 21;
+            this.label18.Text = "Only Character";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(322, 78);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(77, 13);
+            this.label17.TabIndex = 20;
+            this.label17.Text = "Only Character";
+            // 
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             // label9
             // 
             this.label9.AutoSize = true;
@@ -114,6 +245,7 @@
             this.conNoTextBoxEM.Name = "conNoTextBoxEM";
             this.conNoTextBoxEM.Size = new System.Drawing.Size(192, 20);
             this.conNoTextBoxEM.TabIndex = 17;
+            this.conNoTextBoxEM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.conNoTextBoxEM_KeyPress);
             // 
             // label10
             // 
@@ -130,6 +262,7 @@
             this.nameMotherTextBox.Name = "nameMotherTextBox";
             this.nameMotherTextBox.Size = new System.Drawing.Size(192, 20);
             this.nameMotherTextBox.TabIndex = 18;
+            this.nameMotherTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameMotherTextBox_KeyPress);
             // 
             // nameFatherTextBox
             // 
@@ -137,6 +270,7 @@
             this.nameFatherTextBox.Name = "nameFatherTextBox";
             this.nameFatherTextBox.Size = new System.Drawing.Size(192, 20);
             this.nameFatherTextBox.TabIndex = 18;
+            this.nameFatherTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameFatherTextBox_KeyPress);
             // 
             // nidTextBox
             // 
@@ -144,6 +278,7 @@
             this.nidTextBox.Name = "nidTextBox";
             this.nidTextBox.Size = new System.Drawing.Size(192, 20);
             this.nidTextBox.TabIndex = 16;
+            this.nidTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nidTextBox_KeyPress);
             // 
             // label12
             // 
@@ -210,6 +345,7 @@
             this.contactNoTextBox.Name = "contactNoTextBox";
             this.contactNoTextBox.Size = new System.Drawing.Size(192, 20);
             this.contactNoTextBox.TabIndex = 14;
+            this.contactNoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contactNoTextBox_KeyPress);
             // 
             // label6
             // 
@@ -229,6 +365,72 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Image:";
             // 
+<<<<<<< HEAD
+=======
+            // officeGroupBox
+            // 
+            this.officeGroupBox.Controls.Add(this.emailLabel);
+            this.officeGroupBox.Controls.Add(this.label19);
+            this.officeGroupBox.Controls.Add(this.label13);
+            this.officeGroupBox.Controls.Add(this.codeTextBox);
+            this.officeGroupBox.Controls.Add(this.barCodePictureBox);
+            this.officeGroupBox.Controls.Add(this.uploadButton);
+            this.officeGroupBox.Controls.Add(this.employeePictureBox);
+            this.officeGroupBox.Controls.Add(this.outletComboBox);
+            this.officeGroupBox.Controls.Add(this.joinDateTimePicker);
+            this.officeGroupBox.Controls.Add(this.label1);
+            this.officeGroupBox.Controls.Add(this.nameTextBox);
+            this.officeGroupBox.Controls.Add(this.label2);
+            this.officeGroupBox.Controls.Add(this.label3);
+            this.officeGroupBox.Controls.Add(this.emailTextBox);
+            this.officeGroupBox.Controls.Add(this.label7);
+            this.officeGroupBox.Controls.Add(this.label4);
+            this.officeGroupBox.Controls.Add(this.contactNoTextBox);
+            this.officeGroupBox.Controls.Add(this.label6);
+            this.officeGroupBox.Controls.Add(this.label5);
+            this.officeGroupBox.Location = new System.Drawing.Point(6, 6);
+            this.officeGroupBox.Name = "officeGroupBox";
+            this.officeGroupBox.Size = new System.Drawing.Size(396, 440);
+            this.officeGroupBox.TabIndex = 85;
+            this.officeGroupBox.TabStop = false;
+            this.officeGroupBox.Text = "Office";
+            // 
+            // emailLabel
+            // 
+            this.emailLabel.AutoSize = true;
+            this.emailLabel.Location = new System.Drawing.Point(283, 316);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(41, 13);
+            this.emailLabel.TabIndex = 27;
+            this.emailLabel.Text = "label22";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(280, 291);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(64, 13);
+            this.label19.TabIndex = 26;
+            this.label19.Text = "only number";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(280, 16);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(99, 13);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "Hint:Only Character";
+            // 
+            // codeTextBox
+            // 
+            this.codeTextBox.Location = new System.Drawing.Point(84, 60);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.Size = new System.Drawing.Size(190, 20);
+            this.codeTextBox.TabIndex = 24;
+            this.codeTextBox.Visible = false;
+            // 
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             // barCodePictureBox
             // 
             this.barCodePictureBox.Location = new System.Drawing.Point(158, 47);
@@ -257,6 +459,7 @@
             // 
             // outletComboBox
             // 
+            this.outletComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.outletComboBox.FormattingEnabled = true;
             this.outletComboBox.Location = new System.Drawing.Point(158, 115);
             this.outletComboBox.Name = "outletComboBox";
@@ -285,6 +488,7 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(192, 20);
             this.nameTextBox.TabIndex = 17;
+            this.nameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameTextBox_KeyPress);
             // 
             // label2
             // 
@@ -310,6 +514,7 @@
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(192, 20);
             this.emailTextBox.TabIndex = 15;
+            this.emailTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.emailTextBox_Validating);
             // 
             // label7
             // 
@@ -320,6 +525,7 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "Email:";
             // 
+<<<<<<< HEAD
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -353,10 +559,67 @@
             this.tabPage1.Size = new System.Drawing.Size(479, 383);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Office";
+=======
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(440, 15);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 94;
+            this.label8.Text = "Name";
+            // 
+            // serchTextBox
+            // 
+            this.serchTextBox.Location = new System.Drawing.Point(474, 12);
+            this.serchTextBox.Name = "serchTextBox";
+            this.serchTextBox.Size = new System.Drawing.Size(229, 20);
+            this.serchTextBox.TabIndex = 93;
+            this.serchTextBox.TextChanged += new System.EventHandler(this.serchTextBox_TextChanged);
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Location = new System.Drawing.Point(709, 12);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(196, 20);
+            this.searchTextBox.TabIndex = 92;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(911, 19);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(32, 13);
+            this.label11.TabIndex = 91;
+            this.label11.Text = "Code";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // Personal
+            // 
+            this.Personal.Controls.Add(this.tabPage1);
+            this.Personal.Controls.Add(this.tabPage2);
+            this.Personal.Location = new System.Drawing.Point(9, 8);
+            this.Personal.Name = "Personal";
+            this.Personal.SelectedIndex = 0;
+            this.Personal.Size = new System.Drawing.Size(425, 494);
+            this.Personal.TabIndex = 95;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.officeGroupBox);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(417, 468);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
+<<<<<<< HEAD
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.conNoTextBoxEM);
             this.tabPage2.Controls.Add(this.label15);
@@ -392,11 +655,43 @@
             this.label8.Size = new System.Drawing.Size(62, 13);
             this.label8.TabIndex = 91;
             this.label8.Text = "Search Key";
+=======
+            this.tabPage2.Controls.Add(this.updateButton);
+            this.tabPage2.Controls.Add(this.PersonalGroupBox);
+            this.tabPage2.Controls.Add(this.save);
+            this.tabPage2.Controls.Add(this.cancelButton);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(417, 468);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(474, 61);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(276, 20);
+            this.textBox1.TabIndex = 96;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // updateButton
+            // 
+            this.updateButton.Location = new System.Drawing.Point(280, 262);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(107, 30);
+            this.updateButton.TabIndex = 89;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             // 
             // EmployeeSetupUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(530, 733);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.label8);
@@ -414,6 +709,29 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+=======
+            this.ClientSize = new System.Drawing.Size(1000, 514);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Personal);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.serchTextBox);
+            this.Controls.Add(this.showButton);
+            this.Controls.Add(this.searchTextBox);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.employeeDataGridView);
+            this.Name = "EmployeeSetupUi";
+            this.Text = "EmployeeSetupUI";
+            ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).EndInit();
+            this.PersonalGroupBox.ResumeLayout(false);
+            this.PersonalGroupBox.PerformLayout();
+            this.officeGroupBox.ResumeLayout(false);
+            this.officeGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barCodePictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeePictureBox)).EndInit();
+            this.Personal.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -423,6 +741,10 @@
         private System.Windows.Forms.DataGridView employeeDataGridView;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button save;
+<<<<<<< HEAD
+=======
+        private System.Windows.Forms.GroupBox PersonalGroupBox;
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox conNoTextBoxEM;
         private System.Windows.Forms.Label label10;
@@ -439,6 +761,10 @@
         private System.Windows.Forms.TextBox contactNoTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+<<<<<<< HEAD
+=======
+        private System.Windows.Forms.GroupBox officeGroupBox;
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
         private System.Windows.Forms.PictureBox barCodePictureBox;
         public System.Windows.Forms.Button uploadButton;
         private System.Windows.Forms.PictureBox employeePictureBox;
@@ -450,10 +776,30 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.Label label7;
+<<<<<<< HEAD
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Label label8;
+=======
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox serchTextBox;
+        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox codeTextBox;
+        private System.Windows.Forms.TabControl Personal;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label emailLabel;
+        private System.Windows.Forms.Button updateButton;
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
     }
 }

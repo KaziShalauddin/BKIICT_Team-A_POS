@@ -49,6 +49,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.barCodePictureBox = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+<<<<<<< HEAD
+=======
+            this.addChildsRadioButton = new System.Windows.Forms.RadioButton();
+            this.addChildComboBox = new System.Windows.Forms.ComboBox();
+            this.codeTextBox = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             ((System.ComponentModel.ISupportInitialize)(this.itemCategoryDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barCodePictureBox)).BeginInit();
@@ -57,9 +65,10 @@
             // itemCategoryDataGridView
             // 
             this.itemCategoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.itemCategoryDataGridView.Location = new System.Drawing.Point(365, 77);
+            this.itemCategoryDataGridView.Location = new System.Drawing.Point(340, 77);
             this.itemCategoryDataGridView.Name = "itemCategoryDataGridView";
-            this.itemCategoryDataGridView.Size = new System.Drawing.Size(380, 236);
+            this.itemCategoryDataGridView.RowHeadersWidth = 50;
+            this.itemCategoryDataGridView.Size = new System.Drawing.Size(437, 236);
             this.itemCategoryDataGridView.TabIndex = 34;
             // 
             // itemRootCategoryComboBox
@@ -161,10 +170,11 @@
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(114, 137);
+            this.nameTextBox.Location = new System.Drawing.Point(114, 145);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(196, 20);
             this.nameTextBox.TabIndex = 21;
+            this.nameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameTextBox_KeyPress);
             // 
             // label4
             // 
@@ -254,11 +264,71 @@
             this.label3.TabIndex = 38;
             this.label3.Text = "Code";
             // 
+<<<<<<< HEAD
+=======
+            // addChildsRadioButton
+            // 
+            this.addChildsRadioButton.AutoSize = true;
+            this.addChildsRadioButton.Location = new System.Drawing.Point(249, 71);
+            this.addChildsRadioButton.Name = "addChildsRadioButton";
+            this.addChildsRadioButton.Size = new System.Drawing.Size(75, 17);
+            this.addChildsRadioButton.TabIndex = 40;
+            this.addChildsRadioButton.TabStop = true;
+            this.addChildsRadioButton.Text = "Add Childs";
+            this.addChildsRadioButton.UseVisualStyleBackColor = true;
+            this.addChildsRadioButton.CheckedChanged += new System.EventHandler(this.addChildsRadioButton_CheckedChanged);
+            // 
+            // addChildComboBox
+            // 
+            this.addChildComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.addChildComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.addChildComboBox.FormattingEnabled = true;
+            this.addChildComboBox.Location = new System.Drawing.Point(114, 102);
+            this.addChildComboBox.Name = "addChildComboBox";
+            this.addChildComboBox.Size = new System.Drawing.Size(196, 21);
+            this.addChildComboBox.TabIndex = 41;
+            this.addChildComboBox.SelectedIndexChanged += new System.EventHandler(this.addChildComboBox_SelectedIndexChanged);
+            // 
+            // codeTextBox
+            // 
+            this.codeTextBox.Enabled = false;
+            this.codeTextBox.Location = new System.Drawing.Point(112, 200);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.Size = new System.Drawing.Size(196, 20);
+            this.codeTextBox.TabIndex = 42;
+            this.codeTextBox.Visible = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(453, 17);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(196, 20);
+            this.textBox1.TabIndex = 43;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(235, 126);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(99, 13);
+            this.label8.TabIndex = 44;
+            this.label8.Text = "Hint:Only Character";
+            // 
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             // SetupItemCategoryUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(789, 470);
+<<<<<<< HEAD
+=======
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.codeTextBox);
+            this.Controls.Add(this.addChildComboBox);
+            this.Controls.Add(this.addChildsRadioButton);
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             this.Controls.Add(this.barCodePictureBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.uploadButton);
@@ -313,5 +383,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox barCodePictureBox;
         private System.Windows.Forms.Label label3;
+<<<<<<< HEAD
+=======
+        private System.Windows.Forms.RadioButton addChildsRadioButton;
+        private System.Windows.Forms.ComboBox addChildComboBox;
+        private System.Windows.Forms.TextBox codeTextBox;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label8;
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
     }
 }

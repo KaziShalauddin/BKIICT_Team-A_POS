@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
             InitializeComponent();
             GetOrganizations();
             GetOutlets();
-
+            GetBarCode();
         }
 
         private void GetOutlets()
@@ -83,17 +84,29 @@ namespace BKIICT_POS_Management.UI.SetupUI
             }
             try
             {
+                if (db.Outlets.Count(c => c.ContactNo == contactNoTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check your Contact No");
+                    return;
+
+                }
+                else if (db.Outlets.Count(c => c.Code == codeTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check your Code");
+                    return;
+                }
+                else if (db.Outlets.Count(c => c.Name == nameTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check yourName");
+                    return;
+                }
               outlet = new Outlet();
                 outlet.ContactNo = contactNoTextBox.Text;
                 outlet.Name = nameTextBox.Text;
                 outlet.Address = addressTextBox.Text;
                 outlet.OrganizationId = id;
                 outlet.Logo = outletLogo;
-
-                Random number = new Random();
-                outlet.Code = number.Next(100, 200).ToString();
-                Zen.Barcode.Code128BarcodeDraw barcode = Zen.Barcode.BarcodeDrawFactory.Code128WithChecksum;
-                barCodePictureBox.Image = barcode.Draw(outlet.Code, 14);
+                outlet.Code = GetBarCode();
 
                 db.Outlets.Add(outlet);
                 var check = db.SaveChanges();
@@ -114,7 +127,31 @@ namespace BKIICT_POS_Management.UI.SetupUI
                 MessageBox.Show("Please check your input");
             }
         }
-
+        private string GetBarCode()
+        {
+            Random number = new Random();
+            var l = new Organization();
+            l.Code = number.Next(100, 200).ToString();
+            string b = l.Code;
+            Bitmap a = new Bitmap(b.Length * 50, 60);
+            using (Graphics graphic = Graphics.FromImage(a))
+            {
+                Font o = new System.Drawing.Font("IDAutomationHC39M Free Version", 10);
+                PointF f = new PointF(2f, 2f);
+                SolidBrush brush = new SolidBrush(Color.Black);
+                SolidBrush white = new SolidBrush(Color.White);
+                graphic.FillRectangle(white, 0, 0, a.Width, a.Height);
+                graphic.DrawString("*" + b + "*", o, brush, f);
+            }
+            using (MemoryStream ms = new MemoryStream())
+            {
+                a.Save(ms, ImageFormat.Png);
+                barCodePictureBox.Image = a;
+                barCodePictureBox.Height = a.Height;
+                barCodePictureBox.Width = a.Width;
+            }
+            return l.Code;
+        }
         private void searchButton_Click(object sender, EventArgs e)
         {
             string code = searchTextBox.Text;
@@ -125,6 +162,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
                     .Where(o => o.Code == code).ToList();
         }
 
+<<<<<<< HEAD
         private void searchTextBox_TextChanged(object sender, EventArgs e)
         {
            // db = new PosManagementDbContext();
@@ -138,5 +176,91 @@ namespace BKIICT_POS_Management.UI.SetupUI
             ((DataGridViewImageColumn)branchDataGridView.Columns["Logo"]).ImageLayout = DataGridViewImageCellLayout.Stretch;
 
         }
+=======
+        private void serchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            var org = new PosManagementDbContext();
+            String a = serchTextBox.Text;
+            //var search1= 
+            //var s = org.Organizations.Where(o => o.Code.StartsWith(a)).ToList();
+            var search = org.Outlets.Where(o => o.Name.StartsWith(a)).ToList();
+
+            branchDataGridView.DataSource = search;
+        }
+
+        private int gvId;
+        private void branchDataGridView_DoubleClick(object sender, EventArgs e)
+        {
+            var db = new PosManagementDbContext();
+            DataGridViewCell cell = null;
+            foreach (DataGridViewCell selectedCell in branchDataGridView.SelectedCells)
+            {
+                cell = selectedCell;
+                break;
+            }
+            if (cell != null)
+            {
+                DataGridViewRow row = cell.OwningRow;
+                nameTextBox.Text = row.Cells[2].Value.ToString();                
+                codeTextBox.Text = row.Cells[3].Value.ToString();
+                codeTextBox.Visible = true;
+                barCodePictureBox.Visible = false;
+                contactNoTextBox.Text = row.Cells[4].Value.ToString();
+                addressTextBox.Text = row.Cells[5].Value.ToString();
+                gvId = branchDataGridView.CurrentRow.Index;
+
+            }
+        }
+
+        private void organizationComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            var db = new PosManagementDbContext();
+            string searchText = textBox1.Text;
+
+            var organizationInfo = (from aoutlet in db.Outlets
+                                    where (aoutlet.Name.Contains(searchText) || aoutlet.Code.Contains(searchText) || aoutlet.Address.Contains(searchText))
+                                    select aoutlet).ToList();
+            branchDataGridView.DataSource = organizationInfo;
+
+        }
+
+        private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsLetter(e.KeyChar) || e.KeyChar == 8 ? false : true;
+        }
+
+        private void contactNoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsDigit(e.KeyChar) || e.KeyChar == 8 ? false : true;
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            int y = Convert.ToInt32(branchDataGridView.CurrentRow.Cells["Id"].Value);
+            var db = new PosManagementDbContext();
+            var b = db.Outlets.FirstOrDefault(c => c.Id == y);
+            b.Name = nameTextBox.Text;
+            b.Address = addressTextBox.Text;          
+            b.Code = codeTextBox.Text;
+            b.ContactNo = contactNoTextBox.Text;
+            bool update = db.SaveChanges() > 0;
+            if (update)
+            {
+                MessageBox.Show("update");
+            }
+            else
+            {
+                MessageBox.Show("not updated");
+            }
+
+        }
+
+
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
     }
 }

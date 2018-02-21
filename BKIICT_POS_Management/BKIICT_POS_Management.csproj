@@ -85,6 +85,7 @@
     <Compile Include="Migrations\201802110932059_ItemCategory_ProductTem_Classes_Added.Designer.cs">
       <DependentUpon>201802110932059_ItemCategory_ProductTem_Classes_Added.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Migrations\201802140818089_ExpenseDetails_Class_Added.cs" />
     <Compile Include="Migrations\201802140818089_ExpenseDetails_Class_Added.Designer.cs">
       <DependentUpon>201802140818089_ExpenseDetails_Class_Added.cs</DependentUpon>
@@ -100,6 +101,11 @@
     <Compile Include="Migrations\201802210806536_PartyModel_propertyAdded_Customer_Supplier_IsDeleted.cs" />
     <Compile Include="Migrations\201802210806536_PartyModel_propertyAdded_Customer_Supplier_IsDeleted.Designer.cs">
       <DependentUpon>201802210806536_PartyModel_propertyAdded_Customer_Supplier_IsDeleted.cs</DependentUpon>
+=======
+    <Compile Include="Migrations\201802140546149_first.cs" />
+    <Compile Include="Migrations\201802140546149_first.Designer.cs">
+      <DependentUpon>201802140546149_first.cs</DependentUpon>
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -249,6 +255,7 @@
     <EmbeddedResource Include="Migrations\201802110932059_ItemCategory_ProductTem_Classes_Added.resx">
       <DependentUpon>201802110932059_ItemCategory_ProductTem_Classes_Added.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\201802140818089_ExpenseDetails_Class_Added.resx">
       <DependentUpon>201802140818089_ExpenseDetails_Class_Added.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,6 +267,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802210806536_PartyModel_propertyAdded_Customer_Supplier_IsDeleted.resx">
       <DependentUpon>201802210806536_PartyModel_propertyAdded_Customer_Supplier_IsDeleted.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Migrations\201802140546149_first.resx">
+      <DependentUpon>201802140546149_first.cs</DependentUpon>
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

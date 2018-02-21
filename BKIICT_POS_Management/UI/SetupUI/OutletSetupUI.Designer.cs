@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBoxAddOraganization = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.codeTextBox = new System.Windows.Forms.TextBox();
             this.uploadButton = new System.Windows.Forms.Button();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -45,9 +47,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+<<<<<<< HEAD
             this.branchDataGridView = new System.Windows.Forms.DataGridView();
+=======
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.serchTextBox = new System.Windows.Forms.TextBox();
+            this.searchButton = new System.Windows.Forms.Button();
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.branchDataGridView = new System.Windows.Forms.DataGridView();
+            this.updateButton = new System.Windows.Forms.Button();
             this.groupBoxAddOraganization.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barCodePictureBox)).BeginInit();
@@ -57,6 +68,9 @@
             // 
             // groupBoxAddOraganization
             // 
+            this.groupBoxAddOraganization.Controls.Add(this.updateButton);
+            this.groupBoxAddOraganization.Controls.Add(this.label9);
+            this.groupBoxAddOraganization.Controls.Add(this.codeTextBox);
             this.groupBoxAddOraganization.Controls.Add(this.uploadButton);
             this.groupBoxAddOraganization.Controls.Add(this.logoPictureBox);
             this.groupBoxAddOraganization.Controls.Add(this.label6);
@@ -78,6 +92,23 @@
             this.groupBoxAddOraganization.TabIndex = 13;
             this.groupBoxAddOraganization.TabStop = false;
             this.groupBoxAddOraganization.Text = "Add Outlet";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(297, 79);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(99, 13);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Hint:Only Character";
+            // 
+            // codeTextBox
+            // 
+            this.codeTextBox.Location = new System.Drawing.Point(105, 116);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.Size = new System.Drawing.Size(232, 20);
+            this.codeTextBox.TabIndex = 19;
+            this.codeTextBox.Visible = false;
             // 
             // uploadButton
             // 
@@ -118,11 +149,15 @@
             // 
             // organizationComboBox
             // 
+            this.organizationComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.organizationComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.organizationComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.organizationComboBox.FormattingEnabled = true;
             this.organizationComboBox.Location = new System.Drawing.Point(104, 25);
             this.organizationComboBox.Name = "organizationComboBox";
             this.organizationComboBox.Size = new System.Drawing.Size(238, 21);
             this.organizationComboBox.TabIndex = 3;
+            this.organizationComboBox.SelectedIndexChanged += new System.EventHandler(this.organizationComboBox_SelectedIndexChanged);
             // 
             // cancelButton
             // 
@@ -158,6 +193,7 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(236, 20);
             this.nameTextBox.TabIndex = 1;
+            this.nameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameTextBox_KeyPress);
             // 
             // contactNoTextBox
             // 
@@ -165,6 +201,7 @@
             this.contactNoTextBox.Name = "contactNoTextBox";
             this.contactNoTextBox.Size = new System.Drawing.Size(236, 20);
             this.contactNoTextBox.TabIndex = 1;
+            this.contactNoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contactNoTextBox_KeyPress);
             // 
             // label5
             // 
@@ -213,6 +250,13 @@
             // 
             // groupBox1
             // 
+<<<<<<< HEAD
+=======
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.serchTextBox);
+            this.groupBox1.Controls.Add(this.searchButton);
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             this.groupBox1.Controls.Add(this.searchTextBox);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.branchDataGridView);
@@ -222,17 +266,50 @@
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             // 
-            // branchDataGridView
+            // textBox1
             // 
-            this.branchDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.branchDataGridView.Location = new System.Drawing.Point(23, 60);
-            this.branchDataGridView.Name = "branchDataGridView";
-            this.branchDataGridView.Size = new System.Drawing.Size(488, 405);
-            this.branchDataGridView.TabIndex = 14;
+            this.textBox1.Location = new System.Drawing.Point(42, 8);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(229, 20);
+            this.textBox1.TabIndex = 29;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 34);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "Name";
+            // 
+            // serchTextBox
+            // 
+            this.serchTextBox.Location = new System.Drawing.Point(42, 34);
+            this.serchTextBox.Name = "serchTextBox";
+            this.serchTextBox.Size = new System.Drawing.Size(229, 20);
+            this.serchTextBox.TabIndex = 27;
+            this.serchTextBox.TextChanged += new System.EventHandler(this.serchTextBox_TextChanged);
+            // 
+<<<<<<< HEAD
             // searchTextBox
             // 
             this.searchTextBox.Location = new System.Drawing.Point(277, 30);
+=======
+            // searchButton
+            // 
+            this.searchButton.Location = new System.Drawing.Point(433, 6);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(78, 23);
+            this.searchButton.TabIndex = 21;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Location = new System.Drawing.Point(315, 34);
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(198, 20);
             this.searchTextBox.TabIndex = 16;
@@ -241,11 +318,35 @@
             // label7
             // 
             this.label7.AutoSize = true;
+<<<<<<< HEAD
             this.label7.Location = new System.Drawing.Point(194, 33);
+=======
+            this.label7.Location = new System.Drawing.Point(277, 37);
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(62, 13);
             this.label7.TabIndex = 15;
             this.label7.Text = "Search Key";
+            // 
+            // branchDataGridView
+            // 
+            this.branchDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.branchDataGridView.Location = new System.Drawing.Point(23, 60);
+            this.branchDataGridView.Name = "branchDataGridView";
+            this.branchDataGridView.RowTemplate.Height = 70;
+            this.branchDataGridView.Size = new System.Drawing.Size(488, 405);
+            this.branchDataGridView.TabIndex = 14;
+            this.branchDataGridView.DoubleClick += new System.EventHandler(this.branchDataGridView_DoubleClick);
+            // 
+            // updateButton
+            // 
+            this.updateButton.Location = new System.Drawing.Point(300, 442);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(75, 23);
+            this.updateButton.TabIndex = 21;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // OutletSetupUi
             // 
@@ -288,5 +389,11 @@
         private System.Windows.Forms.DataGridView branchDataGridView;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox serchTextBox;
+        private System.Windows.Forms.TextBox codeTextBox;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button updateButton;
     }
 }

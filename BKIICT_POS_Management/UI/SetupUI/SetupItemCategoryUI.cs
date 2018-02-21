@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -20,16 +21,25 @@ namespace BKIICT_POS_Management.UI.SetupUI
         {
             InitializeComponent();
             itemRootCategoryComboBox.Visible = false;
+<<<<<<< HEAD
 
+=======
+            GetBarCode();
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
             GetAll_ItemCategories();
         }
         private void GetAll_ItemCategories()
         {
             var itemCategories = db.ItemCategories.ToList();
             itemCategoryDataGridView.DataSource = itemCategories;
+<<<<<<< HEAD
         
             itemCategoryDataGridView.RowTemplate.Height = 60;
             ((DataGridViewImageColumn)itemCategoryDataGridView.Columns["Image"]).ImageLayout = DataGridViewImageCellLayout.Stretch;
+=======
+            ((DataGridViewImageColumn)itemCategoryDataGridView.Columns["Image"]).ImageLayout = DataGridViewImageCellLayout.Stretch;
+            itemCategoryDataGridView.RowTemplate.Height = 80;
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
         }
 
         private PosManagementDbContext db = new PosManagementDbContext();
@@ -52,6 +62,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
         private void GetItemCategory()
         {
             itemRootCategoryComboBox.DataSource = db.ItemCategories.ToList();
+<<<<<<< HEAD
             itemRootCategoryComboBox.ValueMember = "Id";
             itemRootCategoryComboBox.DisplayMember = "Name";
 
@@ -70,6 +81,36 @@ namespace BKIICT_POS_Management.UI.SetupUI
 
         }
         int id;
+=======
+            itemRootCategoryComboBox.ValueMember = "RootId";
+            itemRootCategoryComboBox.DisplayMember = "Name";           
+        }
+        private string GetBarCode()
+        {
+            Random number = new Random();
+            var l = new Organization();
+            l.Code = number.Next(100, 200).ToString();
+            string b = l.Code;
+            Bitmap a = new Bitmap(b.Length * 50, 60);
+            using (Graphics graphic = Graphics.FromImage(a))
+            {
+                Font o = new System.Drawing.Font("IDAutomationHC39M Free Version", 10);
+                PointF f = new PointF(2f, 2f);
+                SolidBrush brush = new SolidBrush(Color.Black);
+                SolidBrush white = new SolidBrush(Color.White);
+                graphic.FillRectangle(white, 0, 0, a.Width, a.Height);
+                graphic.DrawString("*" + b + "*", o, brush, f);
+            }
+            using (MemoryStream ms = new MemoryStream())
+            {
+                a.Save(ms, ImageFormat.Png);
+                barCodePictureBox.Image = a;
+                barCodePictureBox.Height = a.Height;
+                barCodePictureBox.Width = a.Width;
+            }
+            return l.Code;
+        }
+>>>>>>> 1d0c2b911d41ee1b9d0628d34bfb0d4691bd05f5
         private void itemRootCategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             
@@ -110,6 +151,17 @@ namespace BKIICT_POS_Management.UI.SetupUI
 
             try
             {
+                if (db.ItemCategories.Count(c => c.Name == nameTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check your Name");
+                    return;
+                }
+                else if (db.ProductItems.Count(c => c.Code == codeTextBox.Text) > 0)
+                {
+                    MessageBox.Show("Please Check Your Code");
+                    return;
+                }
+
                 ItemCategory aItemCategory = new ItemCategory();
                 aItemCategory.Name = nameTextBox.Text;
                
@@ -119,10 +171,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
                 aItemCategory.RootId = _rootId;
                 aItemCategory.ChildId = _childId;
 
-                Random number = new Random();
-                aItemCategory.Code = number.Next(100, 200).ToString();
-                Zen.Barcode.Code128BarcodeDraw barcode = Zen.Barcode.BarcodeDrawFactory.Code128WithChecksum;
-                barCodePictureBox.Image = barcode.Draw(aItemCategory.Code, 14);
+                aItemCategory.Code = GetBarCode();
 
 
                 db.ItemCategories.Add(aItemCategory);
@@ -159,9 +208,26 @@ namespace BKIICT_POS_Management.UI.SetupUI
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)
         {
-            //string searchForText = searchTextBox.Text;
-            //var matchingvalues = db.ItemCategories.ToList();
-            //itemCategoryDataGridView.DataSource = matchingvalues;
+            string searchForText = searchTextBox.Text;
+            var matchingvalues = db.ItemCategories.ToList();
+            itemCategoryDataGridView.DataSource = matchingvalues;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            var db = new PosManagementDbContext();
+            string searchText = textBox1.Text;
+
+            var organizationInfo = (from itemCategory in db.ItemCategories
+                                    where (itemCategory.Name.Contains(searchText) || itemCategory.Code.Contains(searchText))
+                                    select itemCategory).ToList();
+            itemCategoryDataGridView.DataSource = organizationInfo;
+
+        }
+
+        private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsLetter(e.KeyChar) || e.KeyChar == 8 ? false : true;
         }
     }
 }
