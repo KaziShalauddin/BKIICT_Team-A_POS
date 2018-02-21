@@ -38,6 +38,7 @@
             this.expenseItemComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.codeTextBox = new System.Windows.Forms.TextBox();
             this.barCodePictureBox = new System.Windows.Forms.PictureBox();
             this.cancelButton = new System.Windows.Forms.Button();
@@ -47,7 +48,7 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.updateButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barCodePictureBox)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -58,7 +59,7 @@
             // 
             this.saveButton.Location = new System.Drawing.Point(219, 269);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(91, 23);
+            this.saveButton.Size = new System.Drawing.Size(91, 33);
             this.saveButton.TabIndex = 11;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -141,6 +142,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.updateButton);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.codeTextBox);
             this.groupBox1.Controls.Add(this.barCodePictureBox);
@@ -159,6 +161,15 @@
             this.groupBox1.Size = new System.Drawing.Size(374, 355);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(269, 95);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(99, 13);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Hint:Only Character";
             // 
             // codeTextBox
             // 
@@ -180,7 +191,7 @@
             // 
             this.cancelButton.Location = new System.Drawing.Point(86, 269);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(103, 23);
+            this.cancelButton.Size = new System.Drawing.Size(103, 33);
             this.cancelButton.TabIndex = 13;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -243,14 +254,15 @@
             this.label6.TabIndex = 16;
             this.label6.Text = "Code";
             // 
-            // label8
+            // updateButton
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(269, 95);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(99, 13);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "Hint:Only Character";
+            this.updateButton.Location = new System.Drawing.Point(235, 308);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(75, 23);
+            this.updateButton.TabIndex = 21;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // SetupExpenseUi
             // 
@@ -293,5 +305,6 @@
         private System.Windows.Forms.TextBox codeTextBox;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button updateButton;
     }
 }

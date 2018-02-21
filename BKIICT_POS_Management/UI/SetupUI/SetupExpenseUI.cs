@@ -137,11 +137,11 @@ namespace BKIICT_POS_Management.UI.SetupUI
             if (cell != null)
             {
                 DataGridViewRow row = cell.OwningRow;
-                nameTextBox.Text = row.Cells[2].Value.ToString();
+                nameTextBox.Text = row.Cells[1].Value.ToString();
                 codeTextBox.Visible = true;
                 barCodePictureBox.Visible = false;
-                codeTextBox.Text = row.Cells[3].Value.ToString();
-                descriptionTextBox.Text = row.Cells[4].Value.ToString();
+                codeTextBox.Text = row.Cells[2].Value.ToString();
+                descriptionTextBox.Text = row.Cells[3].Value.ToString();
                 gvId = expenseCategoryDataGridView.CurrentRow.Index;
 
             }
@@ -163,7 +163,29 @@ namespace BKIICT_POS_Management.UI.SetupUI
         {
             e.Handled = char.IsLetter(e.KeyChar) || e.KeyChar == 8 ? false : true;
         }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            int y = Convert.ToInt32(expenseCategoryDataGridView.CurrentRow.Cells["Id"].Value);
+            var db = new PosManagementDbContext();
+            var b = db.ExpenseItems.FirstOrDefault(c => c.Id == y);
+            b.Name = nameTextBox.Text;
+            b.Description = descriptionTextBox.Text;
+            b.Code = codeTextBox.Text;
+           
+            bool update = db.SaveChanges() > 0;
+            if (update)
+            {
+                MessageBox.Show("update");
+            }
+            else
+            {
+                MessageBox.Show("not updated");
+            }
+
         }
+
+      }
 
         
     }

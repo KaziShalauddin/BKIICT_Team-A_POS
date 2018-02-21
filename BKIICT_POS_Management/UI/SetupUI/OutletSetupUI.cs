@@ -220,6 +220,27 @@ namespace BKIICT_POS_Management.UI.SetupUI
             e.Handled = char.IsDigit(e.KeyChar) || e.KeyChar == 8 ? false : true;
         }
 
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            int y = Convert.ToInt32(branchDataGridView.CurrentRow.Cells["Id"].Value);
+            var db = new PosManagementDbContext();
+            var b = db.Outlets.FirstOrDefault(c => c.Id == y);
+            b.Name = nameTextBox.Text;
+            b.Address = addressTextBox.Text;          
+            b.Code = codeTextBox.Text;
+            b.ContactNo = contactNoTextBox.Text;
+            bool update = db.SaveChanges() > 0;
+            if (update)
+            {
+                MessageBox.Show("update");
+            }
+            else
+            {
+                MessageBox.Show("not updated");
+            }
+
+        }
+
 
     }
 }

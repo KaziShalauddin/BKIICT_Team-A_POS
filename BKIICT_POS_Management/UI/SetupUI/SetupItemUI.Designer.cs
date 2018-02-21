@@ -35,6 +35,8 @@
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.codeTextBox = new System.Windows.Forms.TextBox();
             this.barCodePictureBox = new System.Windows.Forms.PictureBox();
@@ -55,8 +57,7 @@
             this.salePriceTextBox = new System.Windows.Forms.TextBox();
             this.costPriceTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.updateButton = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemsDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -93,6 +94,7 @@
             this.itemsDataGridView.RowTemplate.Height = 70;
             this.itemsDataGridView.Size = new System.Drawing.Size(509, 398);
             this.itemsDataGridView.TabIndex = 20;
+            this.itemsDataGridView.DoubleClick += new System.EventHandler(this.itemsDataGridView_DoubleClick);
             // 
             // searchButton
             // 
@@ -122,6 +124,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.updateButton);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
@@ -150,6 +153,24 @@
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(253, 220);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(90, 13);
+            this.label12.TabIndex = 26;
+            this.label12.Text = "Hint:Only Number";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(241, 182);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(90, 13);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "Hint:Only Number";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -161,7 +182,6 @@
             // 
             // codeTextBox
             // 
-            this.codeTextBox.Enabled = false;
             this.codeTextBox.Location = new System.Drawing.Point(114, 130);
             this.codeTextBox.Name = "codeTextBox";
             this.codeTextBox.Size = new System.Drawing.Size(196, 20);
@@ -216,9 +236,9 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(77, 458);
+            this.cancelButton.Location = new System.Drawing.Point(6, 458);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(103, 23);
+            this.cancelButton.Size = new System.Drawing.Size(85, 33);
             this.cancelButton.TabIndex = 13;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -277,9 +297,9 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(210, 458);
+            this.saveButton.Location = new System.Drawing.Point(97, 458);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(91, 23);
+            this.saveButton.Size = new System.Drawing.Size(90, 33);
             this.saveButton.TabIndex = 11;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -335,23 +355,15 @@
             this.nameTextBox.TabIndex = 10;
             this.nameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameTextBox_KeyPress);
             // 
-            // label11
+            // updateButton
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(241, 182);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(90, 13);
-            this.label11.TabIndex = 25;
-            this.label11.Text = "Hint:Only Number";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(253, 220);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(90, 13);
-            this.label12.TabIndex = 26;
-            this.label12.Text = "Hint:Only Number";
+            this.updateButton.Location = new System.Drawing.Point(193, 458);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(82, 33);
+            this.updateButton.TabIndex = 27;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // SetupItemUi
             // 
@@ -403,5 +415,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button updateButton;
     }
 }

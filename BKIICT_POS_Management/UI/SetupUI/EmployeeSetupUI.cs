@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -88,7 +89,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
                 employee = new Employee();
                 employee.Name = nameTextBox.Text;
                 employee.ContactNo = conNoTextBoxEM.Text;
-                employee.StartDate = joinDateTimePicker.Value.Date;
+                employee.StartDate = joinDateTimePicker.Value;
                 employee.Email = emailTextBox.Text;
                 employee.EmergencyContactNo = conNoTextBoxEM.Text;
                 employee.NID = nidTextBox.Text;
@@ -168,7 +169,8 @@ namespace BKIICT_POS_Management.UI.SetupUI
                             c.MothersName,
                             c.Img,
                             c.PresentAddress,
-                            c.PermanentAddress
+                            c.PermanentAddress,
+                            c.StartDate
                         }).ToList();
             ((DataGridViewImageColumn)employeeDataGridView.Columns["Img"]).ImageLayout = DataGridViewImageCellLayout.Stretch;
         }
@@ -213,18 +215,19 @@ namespace BKIICT_POS_Management.UI.SetupUI
             if (cell != null)
             {
                 DataGridViewRow row = cell.OwningRow;
-                nameTextBox.Text = row.Cells[2].Value.ToString();
-                codeTextBox.Text = row.Cells[3].Value.ToString();
+                nameTextBox.Text = row.Cells[3].Value.ToString();
+                codeTextBox.Text = row.Cells[2].Value.ToString();
                 codeTextBox.Visible = true;
                 barCodePictureBox.Visible = false;
-                contactNoTextBox.Text = row.Cells[4].Value.ToString();
-                emailTextBox.Text = row.Cells[5].Value.ToString();
-                conNoTextBoxEM.Text = row.Cells[6].Value.ToString();
-                nidTextBox.Text = row.Cells[7].Value.ToString();
+                contactNoTextBox.Text = row.Cells[5].Value.ToString();
+                emailTextBox.Text = row.Cells[6].Value.ToString();
+                conNoTextBoxEM.Text = row.Cells[7].Value.ToString();
+                nidTextBox.Text = row.Cells[4].Value.ToString();
                 nameFatherTextBox.Text = row.Cells[8].Value.ToString();
                 nameMotherTextBox.Text = row.Cells[9].Value.ToString();
                 presentAddressTextBox.Text = row.Cells[11].Value.ToString();
                 parmanentAddressTextBox.Text = row.Cells[12].Value.ToString();
+                joinDateTimePicker.Text = row.Cells[13].Value.ToString();
                 gvId = employeeDataGridView.CurrentRow.Index;
 
             }
@@ -264,7 +267,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
 
         private void conNoTextBoxEM_KeyPress(object sender, KeyPressEventArgs e)
         {
-    e.Handled= char.IsNumber(e.KeyChar) || e.KeyChar == 8 ? false : true;
+             e.Handled= char.IsNumber(e.KeyChar) || e.KeyChar == 8 ? false : true;
         }
 
         private void nidTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -286,6 +289,53 @@ namespace BKIICT_POS_Management.UI.SetupUI
             //        e.Cancel = true;
             //    }
             //}
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            int y = Convert.ToInt32(employeeDataGridView.CurrentRow.Cells["Id"].Value);
+            //var db = new PosManagementDbContext();
+            //var employee = db.Employees.FirstOrDefault(c => c.Id == y);
+            
+            //var employee = GetById(y);
+   
+            employee.Name = nameTextBox.Text;
+            employee.Code = codeTextBox.Text;
+            employee.StartDate= joinDateTimePicker.Value;
+            employee.Email = emailTextBox.Text;
+            employee.ContactNo = contactNoTextBox.Text;
+            employee.NID = nidTextBox.Text;
+            employee.EmergencyContactNo = conNoTextBoxEM.Text;
+            employee.PresentAddress = presentAddressTextBox.Text;
+            employee.PermanentAddress = parmanentAddressTextBox.Text;
+            employee.FathersName = nameFatherTextBox.Text;
+            employee.MothersName = nameMotherTextBox.Text;
+            employee.Img = empImage;
+
+            bool update = Update(employee);
+            if (update)
+            {
+                MessageBox.Show("update");
+            }
+            else
+            {
+                MessageBox.Show("not updated");
+            }
+
+        }
+        public static bool Update(Employee employee)
+        {
+            var db = new PosManagementDbContext();
+            db.Employees.Attach(employee);
+            db.Entry(employee).State = EntityState.Modified;
+            return db.SaveChanges() > 0;
+        }
+
+        public Employee GetById(int id)
+        {
+            var db = new PosManagementDbContext();
+            var employee = db.Employees.FirstOrDefault(c => c.Id == id);
+            return employee;
         }
     }
     //OutletAddress = c.Outlet.Address,

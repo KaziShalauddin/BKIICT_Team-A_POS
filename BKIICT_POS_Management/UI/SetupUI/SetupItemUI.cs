@@ -21,6 +21,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
             InitializeComponent();
             GetItemCategory();
             GetAllItems();
+            codeTextBox.Visible = false;
         }
 
         private PosManagementDbContext db = new PosManagementDbContext();
@@ -172,5 +173,52 @@ namespace BKIICT_POS_Management.UI.SetupUI
             e.Handled = char.IsNumber(e.KeyChar) || e.KeyChar == 8 ? false : true;
         }
 
+        private void itemsDataGridView_DoubleClick(object sender, EventArgs e)
+        {
+            var db = new PosManagementDbContext();
+            DataGridViewCell cell = null;
+            foreach (DataGridViewCell selectedCell in itemsDataGridView.SelectedCells)
+            {
+                cell = selectedCell;
+                break;
+            }
+            if (cell != null)
+            {
+                DataGridViewRow row = cell.OwningRow;
+                nameTextBox.Text = row.Cells[1].Value.ToString();
+                //byte[] logoa = (byte[])orgLogo;
+                ////MemoryStream imgbit = new MemoryStream(logoa);
+                //barCodePictureBox.Image = Image.FromStream(imgbit);
+                imgPictureBox.Visible = false;
+                codeTextBox.Visible = true;
+                codeTextBox.Text = row.Cells[4].Value.ToString();
+                costPriceTextBox.Text = row.Cells[2].Value.ToString();
+                salePriceTextBox.Text = row.Cells[3].Value.ToString();
+                descriptionTextBox.Text = row.Cells[6].Value.ToString();
+            }
+
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            int y = Convert.ToInt32(itemsDataGridView.CurrentRow.Cells["Id"].Value);
+            var db = new PosManagementDbContext();
+            var b = db.ProductItems.FirstOrDefault(c => c.Id == y);
+            b.Name = nameTextBox.Text;
+            b.Code = codeTextBox.Text;
+            b.CostPrice = Convert.ToDecimal(costPriceTextBox.Text);
+            b.SalePrice = Convert.ToDecimal(codeTextBox.Text);
+            b.Image = itemImage;
+
+            bool update = db.SaveChanges() > 0;
+            if (update)
+            {
+                MessageBox.Show("update");
+            }
+            else
+            {
+                MessageBox.Show("not updated");
+            }
+        }
     }
 }

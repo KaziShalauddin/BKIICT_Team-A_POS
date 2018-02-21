@@ -43,6 +43,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.orgGroupBox = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.codeTextBox = new System.Windows.Forms.TextBox();
             this.cancelButton = new System.Windows.Forms.Button();
@@ -52,7 +53,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.serchTextBox = new System.Windows.Forms.TextBox();
             this.seTextBox = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.updateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.orgDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barCodePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
@@ -193,6 +194,7 @@
             // 
             // orgGroupBox
             // 
+            this.orgGroupBox.Controls.Add(this.updateButton);
             this.orgGroupBox.Controls.Add(this.label9);
             this.orgGroupBox.Controls.Add(this.label8);
             this.orgGroupBox.Controls.Add(this.codeTextBox);
@@ -215,6 +217,15 @@
             this.orgGroupBox.TabIndex = 15;
             this.orgGroupBox.TabStop = false;
             this.orgGroupBox.Text = "Organization";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(266, 134);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 13);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Hint: Digit only";
             // 
             // label8
             // 
@@ -300,14 +311,15 @@
             this.seTextBox.TabIndex = 22;
             this.seTextBox.TextChanged += new System.EventHandler(this.seTextBox_TextChanged);
             // 
-            // label9
+            // updateButton
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(266, 134);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 13);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Hint: Digit only";
+            this.updateButton.Location = new System.Drawing.Point(172, 347);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(75, 23);
+            this.updateButton.TabIndex = 21;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // OrganizationSetupUi
             // 
@@ -355,5 +367,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button updateButton;
     }
 }

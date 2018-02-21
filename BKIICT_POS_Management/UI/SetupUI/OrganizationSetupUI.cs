@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -178,7 +179,7 @@ namespace BKIICT_POS_Management.UI.SetupUI
 
             orgDataGridView.DataSource = search;
         }
-        private int gvId = 0;
+        private int gvId;
         private void orgDataGridView_DoubleClick(object sender, EventArgs e)
         {
             var db = new PosManagementDbContext();
@@ -200,7 +201,11 @@ namespace BKIICT_POS_Management.UI.SetupUI
                 barCodePictureBox.Visible = false;
                 codeTextBox.Text = row.Cells[2].Value.ToString();
                 addressTextBox.Text = row.Cells[5].Value.ToString();
-                int gvId = orgDataGridView.CurrentRow.Index;
+                gvId = orgDataGridView.CurrentRow.Index;
+                //byte[] data = (byte[])orgLogo;
+                //MemoryStream ms = new MemoryStream(data);
+                //logoPictureBox.Image = Image.FromStream(ms);
+                //org..Image = Image.FromStream(ms);
             }
 
 
@@ -232,6 +237,42 @@ namespace BKIICT_POS_Management.UI.SetupUI
             e.Handled = char.IsNumber(e.KeyChar) || e.KeyChar == 8 ? false : true;
         }
 
-       
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            //int x= orgDataGridView.CurrentRow.Index;
+           int y= Convert.ToInt32(orgDataGridView.CurrentRow.Cells["Id"].Value);
+           var db = new PosManagementDbContext();
+            var b = db.Organizations.FirstOrDefault(c => c.Id == y);
+            b.Name = nameOrgTextBox.Text;
+            b.Address = addressTextBox.Text;
+            b.ContactNo = mobNoTextBox.Text;
+            b.Code = codeTextBox.Text;
+            b.Logo = orgLogo;
+
+            bool update = db.SaveChanges()>0;
+            if (update)
+            {
+                MessageBox.Show("update");
+            }
+            else
+            {
+                MessageBox.Show("not updated");
+            }
+
+        }
+        public static bool Update(Organization organization)
+        {
+            var db = new PosManagementDbContext();
+            db.Organizations.Attach(organization);
+            db.Entry(organization).State = EntityState.Modified;
+            return db.SaveChanges() > 0;
+        }
+
+        public Organization GetById(int id)
+        {
+            var db = new PosManagementDbContext();
+            var  organization = db.Organizations.FirstOrDefault(c => c.Id == id);
+            return organization;
+        }
     }
 }

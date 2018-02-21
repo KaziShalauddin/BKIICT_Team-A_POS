@@ -54,6 +54,7 @@
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.branchDataGridView = new System.Windows.Forms.DataGridView();
+            this.updateButton = new System.Windows.Forms.Button();
             this.groupBoxAddOraganization.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barCodePictureBox)).BeginInit();
@@ -63,6 +64,7 @@
             // 
             // groupBoxAddOraganization
             // 
+            this.groupBoxAddOraganization.Controls.Add(this.updateButton);
             this.groupBoxAddOraganization.Controls.Add(this.label9);
             this.groupBoxAddOraganization.Controls.Add(this.codeTextBox);
             this.groupBoxAddOraganization.Controls.Add(this.uploadButton);
@@ -318,6 +320,16 @@
             this.branchDataGridView.TabIndex = 14;
             this.branchDataGridView.DoubleClick += new System.EventHandler(this.branchDataGridView_DoubleClick);
             // 
+            // updateButton
+            // 
+            this.updateButton.Location = new System.Drawing.Point(300, 442);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(75, 23);
+            this.updateButton.TabIndex = 21;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            // 
             // OutletSetupUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,5 +377,6 @@
         private System.Windows.Forms.TextBox codeTextBox;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button updateButton;
     }
 }

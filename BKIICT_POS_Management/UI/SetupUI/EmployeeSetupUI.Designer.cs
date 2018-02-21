@@ -54,6 +54,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.officeGroupBox = new System.Windows.Forms.GroupBox();
+            this.emailLabel = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.codeTextBox = new System.Windows.Forms.TextBox();
@@ -76,7 +77,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.emailLabel = new System.Windows.Forms.Label();
+            this.updateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).BeginInit();
             this.PersonalGroupBox.SuspendLayout();
             this.officeGroupBox.SuspendLayout();
@@ -351,6 +352,15 @@
             this.officeGroupBox.TabStop = false;
             this.officeGroupBox.Text = "Office";
             // 
+            // emailLabel
+            // 
+            this.emailLabel.AutoSize = true;
+            this.emailLabel.Location = new System.Drawing.Point(283, 316);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(41, 13);
+            this.emailLabel.TabIndex = 27;
+            this.emailLabel.Text = "label22";
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -529,6 +539,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.updateButton);
             this.tabPage2.Controls.Add(this.PersonalGroupBox);
             this.tabPage2.Controls.Add(this.save);
             this.tabPage2.Controls.Add(this.cancelButton);
@@ -548,14 +559,15 @@
             this.textBox1.TabIndex = 96;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // emailLabel
+            // updateButton
             // 
-            this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(283, 316);
-            this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(41, 13);
-            this.emailLabel.TabIndex = 27;
-            this.emailLabel.Text = "label22";
+            this.updateButton.Location = new System.Drawing.Point(280, 262);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(107, 30);
+            this.updateButton.TabIndex = 89;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // EmployeeSetupUi
             // 
@@ -638,5 +650,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label emailLabel;
+        private System.Windows.Forms.Button updateButton;
     }
 }
